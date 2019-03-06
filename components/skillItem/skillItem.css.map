@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,gBAAgB,EAAE,KAAkB;EACpC,aAAa,EAAE,GAAG;CAErB",
+    "sources": [
+        "skillItem.scss"
+    ],
+    "names": [],
+    "file": "skillItem.css"
+}

@@ -1,0 +1,24 @@
+.footer {
+  position: absolute;
+  background-color: #363636;
+  color: #868686;
+  font-family: 'IRANSans', Arial, sans-serif;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 5.7%;
+  width: 100%;
+}
+/*# sourceMappingURL=footer.css.map */
