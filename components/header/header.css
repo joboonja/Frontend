@@ -1,4 +1,64 @@
-.header {
-  position: fixed; }
+.header-nav {
+  background-color: white;
+  width: 100%;
+  height: 5.7%;
+  top: 0;
+  position: fixed;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  direction: rtl;
+}
 
+.header-link {
+  margin: 0;
+  padding: 0;
+  color: black;
+  margin: 0;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  background-color: #444444;
+  color: white;
+  text-decoration: none !important;
+  border-radius: 40px;
+}
+
+.header-list {
+  list-style-type: none;
+  height: 100%;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+.header-logo {
+  width: auto;
+  height: 100%;
+}
+
+.header-logo-container {
+  width: auto;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header-row {
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-item {
+  padding: 0;
+}
 /*# sourceMappingURL=header.css.map */
