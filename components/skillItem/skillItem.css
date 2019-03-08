@@ -72,12 +72,25 @@
   color: #428386;
 }
 
-.selfEndroseBadge:hover {
-  background-color: #854342;
-  color: white;
-}
-
 .selfEndorseBadge a {
   color: #428386;
+}
+
+.selfEndorseBadge a:hover {
+  font-size: 0;
+  line-height: 0;
+}
+
+.selfEndorseBadge a:hover:before {
+  content: attr(data-hover);
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 100%;
+  margin: 0px;
+}
+
+.selfEndorseSkillItem :hover {
+  background-color: #dc2f2c !important;
+  color: white !important;
 }
 /*# sourceMappingURL=skillItem.css.map */

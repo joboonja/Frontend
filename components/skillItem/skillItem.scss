@@ -57,11 +57,22 @@
     background-color: rgb(196, 237, 241);
     color: rgb(66, 131, 134);
 }
-.selfEndroseBadge:hover{
-    background-color: rgb(133, 67, 66);
-    color: rgb(255, 255, 255);
-}
 .selfEndorseBadge a{
     color: rgb(66, 131, 134);
+}
+.selfEndorseBadge a:hover{
+    font-size: 0;
+    line-height: 0; 
+}
+.selfEndorseBadge a:hover:before {
+    content: attr(data-hover);
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 100%;
+    margin:0px;
+}
+.selfEndorseSkillItem :hover{
+    background-color: rgb(220, 47, 44) !important;
+    color: rgb(255, 255, 255) !important;
 }
 
