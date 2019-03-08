@@ -31,7 +31,6 @@
 }
 .badge a:hover{
     text-decoration: none;
-    
 }
 
 .alreadyEndorsedBadge{
@@ -44,13 +43,25 @@
     color: rgb(255, 255, 255);
 }
 
-.endorseBadge a:hover{
+.endorseButton a:hover{
     font-size: 0;
     line-height: 0; 
 }
-.endorseBadge a:hover:before {
+.endorseButton a:hover:before {
     content: attr(data-hover);
     font-size:13px;
     line-height: 100%;
     margin:0px;
 }
+.selfEndorseBadge{
+    background-color: rgb(196, 237, 241);
+    color: rgb(66, 131, 134);
+}
+.selfEndroseBadge:hover{
+    background-color: rgb(133, 67, 66);
+    color: rgb(255, 255, 255);
+}
+.selfEndorseBadge a{
+    color: rgb(66, 131, 134);
+}
+

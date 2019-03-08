@@ -12,10 +12,12 @@
 }
 .profile-content {
     direction: rtl;
-    text-align: right;
     color: rgb(90, 90, 90);
     margin-top: 20px;
     line-height: 200%;
+    text-align: justify;
+    text-justify: inter-word;
+    text-indent: 20px;
 }
 .profile-skills-row
 {

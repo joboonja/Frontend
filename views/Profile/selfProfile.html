@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/assets/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/components/header/header.css">
+    <link rel="stylesheet" href="/components/footer/footer.css">
+    <link rel="stylesheet" href="/components/skillItem/skillItem.css">
+    <link rel="stylesheet" href="/components/top_body/topBody.css">
+    <link rel="stylesheet" href="/components/profile_image/profileImage.css">
+    <link rel="stylesheet" href="/components/addSkill/addSkill.css">
+    <link rel="stylesheet" href="/views/general/general.css">
+    <link rel="stylesheet" href="/views/profile/css/profile.css">
+    <!-- <link rel="stylesheet" href="/views/profile/css/selfProfile.css"> -->
+</head>
+<body style="background-color: rgb(246, 246, 246);">
+    <nav class="header-nav">   
+        <ul class="container header-list">
+            <div class="row header-row">
+                <li class="col-lg-10 col-md-8 col-sm-7 header-logo-container">
+                    <img class="header-logo" src="/assets/logo/logo v1.png" alt="LOGO">
+                </li>
+                <li class="col-lg-1 col-md-2 col-sm-3 header-item" >
+                    <a href="#"class="header-link" >حساب کاربری</a>
+                    
+                </li>
+                <li class="col-lg-1 col-md-2 col-sm-2 header-item">
+                    <a href="#" class="header-link">خروج</a>
+                </li>
+            </div>
+            
+        </ul>
+        
+    </nav>
+    <div>
+            <div class="topBodyProfile row"></div>
+            <div class="row topBodyShadow" ></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="row">
+                            <div class="profile-img-container">
+                                    <img class="profile-img" src="/assets/profile.jpg" alt="PROFILE">
+                            </div>
+                            <div class="profile-badge">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div>
+                            <h2 class="profile-name">
+                                محمدرضا کیانی
+                            </h2>
+                            <div class="nick-name">
+                                اعلی حضرت
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-content" >
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان
+                    </p>
+                </div>
+                <div class="add-skill-container">
+                    <div class="col-auto">
+                        <h4 class="skill-title">
+                                مهارت‌ها:
+                        </h4>
+                    </div>
+                   
+                    <div class="add-skill-section row">
+                        <div class="col-7 add-skill-select-container">
+                            <select name="skill" class="add-skill-select">
+                                <option selected disabled>-- انتخاب مهارت --</option>
+                                <option value="Http">HTTP</option>
+                            </select>
+                        </div>
+                        <div class="col-5 add-skill-button-container">
+                            <button class="add-skill-button">
+                                افزودن مهارت
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="profile-skills-row">
+                    <span class="skillItem">
+                        <span class="badge selfEndorseBadge">
+                            <a href="#" data-hover="+">
+                                    2
+                            </a>
+                        </span>
+                        HTML
+                    </span>
+                    <span class="skillItem">
+                        <span class="badge endorseBadge">
+                            <a href="#" data-hover="+">
+                                    2
+                            </a>
+                        </span>
+                        CSS
+                    </span>
+                    <span class="skillItem">
+                        <span class="badge selfEndorseBadge">3</span>
+                        JavaScript
+                    </span>
+                    <span class="skillItem">
+                        <span class="badge alreadyEndorsedBadge">2</span>
+                        TypeScript
+                    </span>
+                    
+                </div>
+                
+            </div>
+            
+    </div>
+   
+    <footer class="footer">
+            © تمامی حقوق این سایت متعلق به جاب‌اونجا می‌باشد 
+    </footer>
+</body>
+
+</html>
