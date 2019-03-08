@@ -1,0 +1,42 @@
+.profile-img-container {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 14px;
+  -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: -100px;
+}
+
+.profile-img {
+  width: 90%;
+  height: 90%;
+  border-radius: 14px;
+  z-index: 10;
+}
+
+.profile-badge {
+  background-color: rgba(65, 151, 163, 0.6);
+  width: 120px;
+  height: 30px;
+  position: absolute;
+  right: 160px;
+  top: -32px;
+  -webkit-transform: skewX(-35deg);
+          transform: skewX(-35deg);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  z-index: 4;
+  -webkit-box-shadow: -12px 0 0 0 #93d8dd;
+          box-shadow: -12px 0 0 0 #93d8dd;
+}
+/*# sourceMappingURL=profileImage.css.map */

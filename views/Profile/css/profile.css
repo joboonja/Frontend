@@ -1,0 +1,26 @@
+.profile-name {
+  color: #464646;
+  font-weight: bold;
+  margin: 10px;
+  margin-top: 15px;
+}
+
+.nick-name {
+  color: #6d6d6d;
+  text-align: right;
+  margin: 10px;
+  direction: rtl;
+}
+
+.profile-content {
+  direction: rtl;
+  text-align: right;
+  color: #5a5a5a;
+  margin-top: 20px;
+  line-height: 200%;
+}
+
+.profile-skills-row {
+  direction: ltr;
+}
+/*# sourceMappingURL=profile.css.map */
