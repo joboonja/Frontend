@@ -1,0 +1,115 @@
+@import url("/assets/fonts/iransans-fonts/fonts.css");
+.cardItem {
+  background-color: white;
+  color: #25292d;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -webkit-box-shadow: 0 0px 4px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.projectInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  padding-top: 28px;
+  margin-top: -50px;
+  border-bottom: 2px dashed #59cbd6;
+  text-align: right;
+}
+
+.projectTitle {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.iconItem {
+  text-align: right;
+  margin-right: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.timeIcon {
+  color: #9d9d9d;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.timeLeftTitle {
+  color: #5e5e5e;
+  font-size: 16;
+  font-weight: bold;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 0;
+  padding-left: 0;
+}
+
+.timeLeftText {
+  color: #777777;
+  font-size: 12;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 0;
+  padding-right: 0;
+  text-align: right;
+}
+
+.moneyIcon {
+  color: #38838b;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.moneyText {
+  color: #38838b;
+  font-size: 16;
+  font-weight: bold;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 0;
+  padding-left: 0;
+}
+
+.descriptionTitle {
+  text-align: right;
+  color: #14191d;
+  margin-right: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.description {
+  margin-top: 20px;
+  margin-right: 20px;
+  text-align: justify;
+  line-height: 200%;
+  text-justify: inter-word;
+  text-indent: 20px;
+}
+
+.projectSkills {
+  background-color: #f2f2f2;
+  color: #38838b;
+  font-weight: bold;
+  text-align: right;
+  -webkit-box-shadow: 0 0px 4px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.skillsTitle {
+  margin-right: 20px;
+  padding-top: 20px;
+}
+/*# sourceMappingURL=projectCard.css.map */

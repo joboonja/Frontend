@@ -1,0 +1,9 @@
+.projectImage {
+  width: 17%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  justify-self: flex-start;
+  border: 1px solid whitesmoke;
+  margin-left: 16px;
+}
+/*# sourceMappingURL=projectImage.css.map */
