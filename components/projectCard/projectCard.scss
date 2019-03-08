@@ -1,0 +1,100 @@
+$border-radius: 5px;
+@import url("/assets/fonts/iransans-fonts/fonts.css");
+
+.cardItem {
+    background-color: rgb(255, 255, 255);
+    color: rgb(37, 41, 45);
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    box-shadow: 0 0px 4px 1px rgba($color: #000000, $alpha: 0.1);
+}
+
+.projectInfo {
+    display: flex;
+    padding: 20px;
+    padding-top: 28px;
+    margin-top: -50px;
+    border-bottom: 2px dashed rgb(89, 203, 214); 
+    text-align: right;
+}
+
+.projectTitle {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.iconItem {
+    text-align: right;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeIcon {
+    color: rgb(157, 157, 157);
+    justify-self: center;
+}
+
+.timeLeftTitle {
+    color: rgb(94, 94, 94);
+    font-size: 16;
+    font-weight: bold;
+    align-self: center;
+    margin: 0;
+    padding-left: 0;
+}
+
+.timeLeftText {
+    color: rgb(119, 119, 119);
+    font-size: 12;
+    align-self: center;
+    margin: 0;
+    padding-right: 0;
+    text-align: right;
+}
+
+.moneyIcon {
+    color: rgb(56, 131, 139);
+    justify-self: center;
+}
+
+.moneyText {
+    color: rgb(56, 131, 139);
+    font-size: 16;
+    font-weight: bold;
+    align-self: center;
+    margin: 0;
+    padding-left: 0;
+}
+
+.descriptionTitle {
+    text-align: right;
+    color: rgb(20, 25, 29);
+    margin-right: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.description {
+    margin-top: 20px;
+    margin-right: 20px;
+    text-align: justify;
+    line-height: 200%;
+    text-justify: inter-word;
+    text-indent:20px;
+}
+
+.projectSkills {
+    background-color: rgb(242, 242, 242);
+    color: rgb(56, 131, 139);
+    font-weight: bold;
+    text-align: right;
+    box-shadow: 0 0px 4px 1px rgba($color: #000000, $alpha: 0.1);
+}
+
+.skillsTitle {
+    margin-right: 20px;
+    padding-top: 20px; 
+}

@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,OAAkB;EACpC,aAAa,EAAE,IAAI;EACnB,YAAY,EAAE,KAAK;CACtB;;AACD,AAAA,cAAc,CAAA;EACV,MAAM,EAAE,GAAG;EACX,UAAU,EAAE,CAAC,CAAE,IAAG,CAAC,GAAG,CAAc,kBAAO;CAC9C",
-    "sources": [
-        "topBody.scss"
-    ],
-    "names": [],
-    "file": "topBody.css"
-}
