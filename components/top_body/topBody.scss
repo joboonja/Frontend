@@ -1,4 +1,10 @@
 .topBodyProfile{
     height: 210px;
     background-color: rgb(195, 237, 241);
+    border-bottom: 10px;
+    border-color: black;
+}
+.topBodyShadow{
+    height: 1px;
+    box-shadow: 0 -1px 4px rgba($color: #000000, $alpha: 0.1);
 }
