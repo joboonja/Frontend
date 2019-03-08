@@ -1,5 +1,36 @@
 .skillItem {
-  background-color: white;
+  background-color: #c0dddd;
   border-radius: 5px;
+  font-size: 16px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-decoration: none;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 8px;
+  margin: 5px;
+}
+
+.badge {
+  font-size: 16px;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  margin: 7px;
+}
+
+.alreadyEndorsedBadge {
+  background-color: #c4edf1;
+  color: #428386;
+}
+
+.endorseBadge {
+  background-color: #52b434;
+  color: white;
 }
 /*# sourceMappingURL=skillItem.css.map */
