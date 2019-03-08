@@ -1,10 +1,13 @@
+* {
+  font-family: IRANSans;
+  direction: rtl;
+}
+
 @font-face {
-  * {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: normal;
-    src: url("./iransans/eot/IRANSansWeb.eot");
-    src: url("./iransans/eot/IRANSansWeb.eot?#iefix") format("embedded-opentype"), url("./iransans/woff2/IRANSansWeb.woff2") format("woff2"), url("./iransans/woff/IRANSansWeb.woff") format("woff"), url("./iransans/ttf/IRANSansWeb.ttf") format("truetype");
-  }
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/iransans-fonts/iransans/eot/IRANSansWeb.eot");
+  src: url("/assets/fonts/iransans-fonts/iransans/eot/IRANSansWeb.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/iransans-fonts/iransans/woff2/IRANSansWeb.woff2") format("woff2"), url("/assets/fonts/iransans-fonts/iransans/woff/IRANSansWeb.woff") format("woff"), url("/assets/fonts/iransans-fonts/iransans/ttf/IRANSansWeb.ttf") format("truetype");
 }
 /*# sourceMappingURL=general.css.map */
