@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,MAAM,EAAE,GAAG;EACX,gBAAgB,EAAE,OAAkB;CAEvC",
+    "sources": [
+        "topBody.scss"
+    ],
+    "names": [],
+    "file": "topBody.css"
+}
