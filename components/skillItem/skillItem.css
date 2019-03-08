@@ -31,6 +31,7 @@
   padding: 7px;
   padding-right: 8px;
   padding-left: 8px;
+  border: none;
 }
 
 .badge a {
@@ -76,12 +77,12 @@
   color: #428386;
 }
 
-.selfEndorseBadge a:hover {
-  font-size: 0;
+.selfEndorseBadge button:hover {
+  font-size: 0 !important;
   line-height: 0;
 }
 
-.selfEndorseBadge a:hover:before {
+.selfEndorseSkillItem button:hover:before {
   content: attr(data-hover);
   font-size: 13px;
   font-weight: bold;
@@ -92,5 +93,7 @@
 .selfEndorseSkillItem :hover {
   background-color: #dc2f2c !important;
   color: white !important;
+  font-size: 0 !important;
+  line-height: 0;
 }
 /*# sourceMappingURL=skillItem.css.map */
