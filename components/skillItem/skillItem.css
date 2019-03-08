@@ -1,7 +1,7 @@
 .skillItem {
   background-color: white;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -15,13 +15,19 @@
           align-items: center;
   padding-left: 8px;
   margin: 5px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .badge {
-  font-size: 16px;
+  font-size: 12px;
   -ms-flex-line-pack: start;
       align-content: flex-start;
   margin: 7px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
 }
 
 .alreadyEndorsedBadge {
