@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,MAAM,EAAE,GAAG;EACX,gBAAgB,EAAE,OAAkB;CAEvC",
+    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,OAAkB;CACvC",
     "sources": [
         "topBody.scss"
     ],
