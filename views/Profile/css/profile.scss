@@ -1,0 +1,23 @@
+.profile-name {
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    margin:10px;
+    margin-top: 15px;
+}
+.nick-name {
+    color: rgb(109, 109, 109);
+    text-align: right;
+    margin:10px;
+    direction: rtl;
+}
+.profile-content {
+    direction: rtl;
+    text-align: right;
+    color: rgb(90, 90, 90);
+    margin-top: 20px;
+    line-height: 200%;
+}
+.profile-skills-row
+{
+    direction: ltr;
+}
