@@ -163,3 +163,19 @@ $border-radius: 5px;
     background-color: rgb(76, 172, 188);
     color: rgb(255, 255, 255);
 }
+
+.alreadyBidIcon {
+    color: rgb(60, 132, 70);
+    justify-self: center;
+    margin: 0;
+    margin-top: 24px;
+    margin-right: 8px;
+    padding: 0;
+}
+
+.alreadyBidText {
+    text-align: right;
+    color: rgb(60, 132, 70);
+    margin-top: 32px;
+    margin-bottom: 32px; 
+}

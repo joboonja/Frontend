@@ -181,4 +181,21 @@
   background-color: #4cacbc;
   color: white;
 }
+
+.alreadyBidIcon {
+  color: #3c8446;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin: 0;
+  margin-top: 24px;
+  margin-right: 8px;
+  padding: 0;
+}
+
+.alreadyBidText {
+  text-align: right;
+  color: #3c8446;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
 /*# sourceMappingURL=projectCard.css.map */
