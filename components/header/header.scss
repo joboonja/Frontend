@@ -6,7 +6,8 @@
     position: fixed;
     align-items: center;
     direction: rtl;
-    box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.1)
+    box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.1);
+    z-index: 100000;
   }
   .header-link {
       margin:0;
