@@ -131,6 +131,7 @@
           justify-content: right;
   justify-items: right;
   text-align: right;
+  margin-bottom: 32px;
 }
 
 .bidTitle {
