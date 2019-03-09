@@ -39,7 +39,7 @@
   margin-right: 20px;
 }
 
-.timeIcon {
+.projectIcon {
   color: #9d9d9d;
   -ms-grid-column-align: center;
       justify-self: center;
@@ -47,7 +47,7 @@
   padding: 0;
 }
 
-.timeLeftTitle {
+.projectInfoTitle {
   color: #5e5e5e;
   font-size: 16;
   font-weight: bold;
@@ -58,7 +58,7 @@
   padding: 0;
 }
 
-.timeLeftText {
+.projectInfoText {
   color: #777777;
   font-size: 12;
   -ms-flex-item-align: center;
@@ -70,23 +70,8 @@
   text-indent: 5px;
 }
 
-.moneyIcon {
+.money {
   color: #38838b;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  margin: 0;
-  padding: 0;
-}
-
-.moneyText {
-  color: #38838b;
-  font-size: 16;
-  font-weight: bold;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin: 0;
-  padding: 0;
 }
 
 .descriptionTitle {

@@ -34,14 +34,14 @@ $border-radius: 5px;
     margin-right: 20px;
 }
 
-.timeIcon {
+.projectIcon {
     color: rgb(157, 157, 157);
     justify-self: center;
     margin: 0;
     padding: 0;
 }
 
-.timeLeftTitle {
+.projectInfoTitle {
     color: rgb(94, 94, 94);
     font-size: 16;
     font-weight: bold;
@@ -50,7 +50,7 @@ $border-radius: 5px;
     padding: 0;
 }
 
-.timeLeftText {
+.projectInfoText {
     color: rgb(119, 119, 119);
     font-size: 12;
     align-self: center;
@@ -60,20 +60,8 @@ $border-radius: 5px;
     text-indent: 5px;
 }
 
-.moneyIcon {
+.money {
     color: rgb(56, 131, 139);
-    justify-self: center;
-    margin: 0;
-    padding: 0;
-}
-
-.moneyText {
-    color: rgb(56, 131, 139);
-    font-size: 16;
-    font-weight: bold;
-    align-self: center;
-    margin: 0;
-    padding: 0;
 }
 
 .descriptionTitle {
