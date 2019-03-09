@@ -198,5 +198,16 @@
   color: #3c8446;
   margin-top: 32px;
   margin-bottom: 32px;
+  padding-right: 5px;
+}
+
+.deadlinePassed {
+  color: red;
+  font-weight: normal;
+}
+
+.winner {
+  color: #3c8446;
+  font-weight: normal;
 }
 /*# sourceMappingURL=projectCard.css.map */
