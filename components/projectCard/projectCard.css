@@ -119,4 +119,59 @@
   padding-bottom: 24px;
   text-align: left;
 }
+
+.bid {
+  background-color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-box-shadow: 0 0px 4px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0px 4px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  justify-items: right;
+  text-align: right;
+}
+
+.bidTitle {
+  text-align: right;
+  color: #202428;
+  margin-right: 24px;
+  font-weight: bold;
+  padding-top: 24px;
+}
+
+.bid input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #35b8cc;
+  margin-bottom: 36px;
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: right;
+  border-radius: 5px;
+  margin-right: 32px;
+  margin-top: 4px;
+  padding-right: 8px;
+}
+
+.moneyUnit {
+  color: #4cacbc;
+  position: absolute;
+  margin-top: -67px;
+  margin-right: 240px;
+}
+
+.sendButton {
+  height: 40px;
+  margin-right: 8px;
+  width: 100%;
+  margin-top: 4px;
+  border-radius: 5px;
+  border: 2px solid #4cacbc;
+  background-color: #4cacbc;
+  color: white;
+}
 /*# sourceMappingURL=projectCard.css.map */

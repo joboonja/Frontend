@@ -105,3 +105,54 @@ $border-radius: 5px;
     padding-bottom: 24px; 
     text-align: left;
 }
+
+.bid {
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    box-shadow: 0 0px 4px 1px rgba($color: #000000, $alpha: 0.1);
+    justify-content: right;
+    justify-items: right;
+    text-align: right;
+}
+
+.bidTitle {
+    text-align: right;
+    color: rgb(32, 36, 40);
+    margin-right: 24px;
+    font-weight: bold;
+    padding-top: 24px;
+}
+
+.bid input {
+    box-sizing: border-box;
+    border: 2px solid rgb(53, 184, 204);
+    margin-bottom: 36px;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;
+    border-radius: $border-radius;
+    margin-right: 32px;
+    margin-top: 4px;
+    padding-right: 8px;
+}
+
+.moneyUnit {
+    color:rgb(76, 172, 188);
+    position: absolute;
+    margin-top: -67px;
+    margin-right: 240px;
+}
+
+.sendButton {
+    height: 40px;
+    margin-right: 8px;
+    width: 100%;
+    margin-top: 4px;
+    border-radius: $border-radius;
+    border: 2px solid rgb(76, 172, 188);
+    background-color: rgb(76, 172, 188);
+    color: rgb(255, 255, 255);
+}
