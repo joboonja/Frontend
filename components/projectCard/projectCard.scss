@@ -27,14 +27,18 @@ $border-radius: 5px;
 
 .iconItem {
     text-align: right;
-    margin-right: 20px;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
 }
 
 .timeIcon {
     color: rgb(157, 157, 157);
     justify-self: center;
+    margin: 0;
+    padding: 0;
 }
 
 .timeLeftTitle {
@@ -43,7 +47,7 @@ $border-radius: 5px;
     font-weight: bold;
     align-self: center;
     margin: 0;
-    padding-left: 0;
+    padding: 0;
 }
 
 .timeLeftText {
@@ -51,13 +55,15 @@ $border-radius: 5px;
     font-size: 12;
     align-self: center;
     margin: 0;
-    padding-right: 0;
+    padding: 0;
     text-align: right;
 }
 
 .moneyIcon {
     color: rgb(56, 131, 139);
     justify-self: center;
+    margin: 0;
+    padding: 0;
 }
 
 .moneyText {
@@ -66,7 +72,7 @@ $border-radius: 5px;
     font-weight: bold;
     align-self: center;
     margin: 0;
-    padding-left: 0;
+    padding: 0;
 }
 
 .descriptionTitle {
@@ -114,7 +120,7 @@ $border-radius: 5px;
     justify-content: right;
     justify-items: right;
     text-align: right;
-    margin-bottom: 32px;
+    margin-bottom: 12px;
 }
 
 .bidTitle {
@@ -144,7 +150,7 @@ $border-radius: 5px;
     color:rgb(76, 172, 188);
     position: absolute;
     margin-top: -67px;
-    margin-right: 240px;
+    margin-right: 224px;
 }
 
 .sendButton {

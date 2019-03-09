@@ -28,19 +28,23 @@
 
 .iconItem {
   text-align: right;
-  margin-right: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0;
+  padding: 0;
+  margin-right: 20px;
 }
 
 .timeIcon {
   color: #9d9d9d;
   -ms-grid-column-align: center;
       justify-self: center;
+  margin: 0;
+  padding: 0;
 }
 
 .timeLeftTitle {
@@ -51,7 +55,7 @@
       -ms-grid-row-align: center;
       align-self: center;
   margin: 0;
-  padding-left: 0;
+  padding: 0;
 }
 
 .timeLeftText {
@@ -61,7 +65,7 @@
       -ms-grid-row-align: center;
       align-self: center;
   margin: 0;
-  padding-right: 0;
+  padding: 0;
   text-align: right;
 }
 
@@ -69,6 +73,8 @@
   color: #38838b;
   -ms-grid-column-align: center;
       justify-self: center;
+  margin: 0;
+  padding: 0;
 }
 
 .moneyText {
@@ -79,7 +85,7 @@
       -ms-grid-row-align: center;
       align-self: center;
   margin: 0;
-  padding-left: 0;
+  padding: 0;
 }
 
 .descriptionTitle {
@@ -131,7 +137,7 @@
           justify-content: right;
   justify-items: right;
   text-align: right;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 }
 
 .bidTitle {
@@ -162,7 +168,7 @@
   color: #4cacbc;
   position: absolute;
   margin-top: -67px;
-  margin-right: 240px;
+  margin-right: 224px;
 }
 
 .sendButton {
