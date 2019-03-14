@@ -57,15 +57,18 @@
   color: white;
 }
 
-.endorseButton a:hover {
+.othersSkillItem button:hover {
   font-size: 0;
   line-height: 0;
 }
 
-.endorseButton a:hover:before {
+.othersSkillItem button:hover:before {
   content: attr(data-hover);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: bold;
   line-height: 100%;
+  padding-left: 4px;
+  padding-right: 4px;
   margin: 0px;
 }
 
@@ -85,9 +88,11 @@
 
 .selfEndorseSkillItem button:hover:before {
   content: attr(data-hover);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
   line-height: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
   margin: 0px;
 }
 
