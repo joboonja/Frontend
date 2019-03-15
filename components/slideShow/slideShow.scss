@@ -7,11 +7,12 @@ div.slideShow {
 div.slideShow img{
   position: absolute;
   top: 0; left: 0;
-  z-index: -5;
+  z-index: -3;
   animation: slideshow 18s linear 0s infinite;   
   height: 100%;
   width: 100%;
 }
+
 
 div.slideShow img:nth-child(2) {
   z-index: -4;
@@ -19,7 +20,7 @@ div.slideShow img:nth-child(2) {
 }
 
 div.slideShow img:nth-child(3) {
-  z-index: -3;
+  z-index: -5;
   animation-delay: 12s;
 }
 

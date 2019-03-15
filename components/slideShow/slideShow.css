@@ -8,7 +8,7 @@ div.slideShow img {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -5;
+  z-index: -3;
   -webkit-animation: slideshow 18s linear 0s infinite;
           animation: slideshow 18s linear 0s infinite;
   height: 100%;
@@ -22,7 +22,7 @@ div.slideShow img:nth-child(2) {
 }
 
 div.slideShow img:nth-child(3) {
-  z-index: -3;
+  z-index: -5;
   -webkit-animation-delay: 12s;
           animation-delay: 12s;
 }
