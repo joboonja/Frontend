@@ -1,9 +1,10 @@
 import React from 'react';
+import Profile from './scenes/Profile';
 
 
 function App() {
   return (
-    <div> Hello World </div>
+    <Profile />
   );
 }
 
