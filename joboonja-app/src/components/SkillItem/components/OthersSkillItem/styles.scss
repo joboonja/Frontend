@@ -1,0 +1,13 @@
+.othersSkillItem button:hover{
+    font-size: 0;
+    line-height: 0; 
+}
+.othersSkillItem button:hover:before {
+    content: attr(data-hover);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 100%;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin:0px;
+}

@@ -1,0 +1,44 @@
+.skillItem{
+    background-color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-flex;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8px;
+    margin: 5px;
+    box-shadow: 0 1px 4px rgba($color : #000000, $alpha:0.1);
+}
+.badge{
+    font-size: 12px;
+    align-content: flex-start;
+    margin: 7px;
+    justify-content: center;
+    text-align: center;
+    padding: 7px;
+    padding-right: 8px;
+    padding-left: 8px; 
+    border : none;
+    font-weight: normal;
+}
+.badge a{
+    text-decoration: none;
+    display: block;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+.badge a:hover{
+    text-decoration: none;
+}
+.alreadyEndorsedBadge{
+    background-color: rgb(196, 237, 241);
+    color: rgb(66, 131, 134);
+}
+
+.endorseBadge{
+    background-color: rgb(82, 180, 52);
+    color: rgb(255, 255, 255);
+}
