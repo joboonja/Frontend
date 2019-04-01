@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../styles.scss';
 import SkillItem from '../../../../components/SkillItem';
 
+
 const skills = [
   { points: 10, name: 'Html' },
   { points: 10, name: 'CSS' },

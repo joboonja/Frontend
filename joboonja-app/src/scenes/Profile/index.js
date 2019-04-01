@@ -32,7 +32,6 @@ export function ProfileRoute({ match }) {
 class Profile extends React.PureComponent {
   render() {
     const { id, isSelf } = this.props;
-    console.log(isSelf);
     return (
       <div className="background">
         <Navbar />
