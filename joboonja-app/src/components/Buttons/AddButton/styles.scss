@@ -1,0 +1,17 @@
+.add-skill-button{
+  min-width: 110px;
+  min-height: 40px;
+  color: white;
+  background-color: rgb(65, 151, 163);
+  box-decoration-break: none;
+  border:none;
+  border-radius: 3px;
+  margin-left: 0;
+  font-weight: normal;
+}
+.add-skill-button:active{
+  background-color:rgb(55, 127, 136);
+}
+.add-skill-button:hover{
+  background-color: rgb(42, 138, 166);
+}

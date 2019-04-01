@@ -3,6 +3,8 @@ import Navbar from '../../components/Navbar';
 import UserProfileShow from './components/UserProfileShow';
 import SkillItem from '../../components/SkillItem';
 import Footer from '../../components/Footer';
+import AddSkill from './components/AddSkill';
+import './styles.scss';
 import image from '../../assets/images/profile.jpg';
 
 // TODO: Profile Info from axios
@@ -17,11 +19,11 @@ const skills = [
 
 
 function Profile() {
-  const skillRow = skills.map(item => (<SkillItem type="Self" skill={item}  />));
+  const skillRow = skills.map(item => (<SkillItem type="Self" skill={item} />));
   return (
-    <div style={{ backgroundColor: 'rgb(246, 246, 246)' }}>
+    <div className="background">
       <Navbar />
-      <div style={{ minHeight: 'calc(100vh - 65px)' }}>
+      <div className="main">
         <UserProfileShow
           firstName="محمدرضا"
           lastName="کیانی"
@@ -37,6 +39,7 @@ function Profile() {
           imgUrl={image}
         />
         <div className="container">
+          <AddSkill skillNames={['html']} />
           {skillRow}
         </div>
       </div>
