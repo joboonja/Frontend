@@ -1,34 +1,47 @@
+/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import React from 'react';
+import { Route } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import UserProfileShow from './components/UserProfileShow';
-import SkillItem from '../../components/SkillItem';
 import Footer from '../../components/Footer';
-import AddSkill from './components/AddSkill';
+import OthersProfileSkill from './scenes/OthersProfileSkill';
+import SelfProfileSkill from './scenes/SelfProfileSkill';
 import './styles.scss';
 import image from '../../assets/images/profile.jpg';
 
 // TODO: Profile Info from axios
+const selfId = 'Self';
 
-const skills = [
-  { points: 10, name: 'Html' },
-  { points: 10, name: 'CSS' },
-  { points: 10, name: 'OK' },
-  { points: 10, name: 'HELLO' },
-  { points: 10, name: 'Html' },
-];
-
-
-function Profile() {
-  const skillRow = skills.map(item => (<SkillItem type="Self" skill={item} />));
+export function ProfileRoute({ match }) {
   return (
-    <div className="background">
-      <Navbar />
-      <div className="main">
-        <UserProfileShow
-          firstName="محمدرضا"
-          lastName="کیانی"
-          nickName="اعلی‌حضرت"
-          bio="
+    <div>
+      <Route
+        path={`${match.path}/:id`}
+        render={props => <Profile id={props.match.params.id} isSelf={false} />}
+      />
+      <Route
+        exact
+        path={match.path}
+        render={() => <Profile id={selfId} isSelf />}
+      />
+    </div>
+  );
+}
+
+class Profile extends React.PureComponent {
+  render() {
+    const { id, isSelf } = this.props;
+    console.log(isSelf);
+    return (
+      <div className="background">
+        <Navbar />
+        <div className="main">
+          <UserProfileShow
+            firstName="محمدرضا"
+            lastName="کیانی"
+            nickName="اعلی‌حضرت"
+            bio="
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
                     و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
                     کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
@@ -36,16 +49,22 @@ function Profile() {
                     ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که
                     تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان
         "
-          imgUrl={image}
-        />
-        <div className="container">
-          <AddSkill skillNames={['html']} />
-          {skillRow}
+            imgUrl={image}
+          />
+          {
+            isSelf ? <SelfProfileSkill id={id} />
+              : <OthersProfileSkill id={id} />
+          }
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
+    );
+  }
 }
+
+Profile.propTypes = {
+  id: PropTypes.string.isRequired,
+  isSelf: PropTypes.bool.isRequired,
+};
 
 export default Profile;

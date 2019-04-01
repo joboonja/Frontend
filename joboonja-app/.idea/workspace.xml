@@ -19,7 +19,8 @@
             <state relative-caret-position="63">
               <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#38#73#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -241,7 +242,7 @@
               <item name="joboonja-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="joboonja-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="joboonja-app" type="b2602c69:ProjectViewProjectNode" />
@@ -271,6 +272,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="scenes" type="462c0819:PsiDirectoryNode" />
               <item name="Profile" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="joboonja-app" type="b2602c69:ProjectViewProjectNode" />
@@ -784,7 +786,7 @@
         <state relative-caret-position="251">
           <caret line="52" column="69" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -1,10 +1,14 @@
 import React from 'react';
-import Profile from './scenes/Profile';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ProfileRoute } from './scenes/Profile';
 
 function App() {
   return (
-    <Profile />
+    <Router>
+      <div>
+        <Route path="/profile" component={ProfileRoute} />
+      </div>
+    </Router>
   );
 }
 
