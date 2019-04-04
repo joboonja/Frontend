@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '@material-ui/core';
 import './styles.scss';
+
 
 export default function AddButton({ children, onClick }) {
   return (
-    <button className="add-skill-button" type="button" onClick={onClick}>
+    <Button variant="contained" color="primary" className="add-skill-button" type="button" onClick={onClick}>
       {children}
-    </button>
+    </Button>
   );
 }
 AddButton.propTypes = {

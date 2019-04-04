@@ -8,10 +8,6 @@ import OthersProfileSkill from '../OthersProfileSkill';
 import SelfProfileSkill from '../SelfProfileSkill';
 import { requestForProfile } from '../../services/actions/getProfileActions';
 import '../../styles.scss';
-import image from '../../../../assets/images/profile.jpg';
-
-// TODO: Profile Info from axios
-
 
 class Profile extends React.Component {
   componentDidMount() {
@@ -21,7 +17,6 @@ class Profile extends React.Component {
 
   render() {
     const { id, isSelf, profile } = this.props;
-    console.log(this.props);
     return (
       <div className="background">
         <Navbar />
@@ -61,10 +56,10 @@ Profile.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = state => ({
-  profile: state.Profile.getProfileReducer.profile,
-  error: state.Profile.getProfileReducer.error,
-  loading: state.Profile.getProfileReducer.loading,
+const mapStateToProps = store => ({
+  profile: store.Profile.getProfileReducer.profile,
+  error: store.Profile.getProfileReducer.error,
+  loading: store.Profile.getProfileReducer.loading,
 });
 
 const mapDispatchToProps = dispatch => ({

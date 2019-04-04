@@ -4,7 +4,7 @@ import { profileReqError, profileReqSuccess, profileReqSent } from '../actions/g
 const getProfileReducer = handleActions(
   {
     [profileReqSent]: state => ({
-      ...state, loading: true, error: '', profile: {},
+      ...state, loading: true,
     }),
     [profileReqError]: (state, { payload: error }) => ({
       ...state, error: error.toString(), loading: false,
@@ -14,7 +14,14 @@ const getProfileReducer = handleActions(
     }),
   },
   {
-    profile: {},
+    profile: {
+      firstName: '',
+      lastName: '',
+      jobTitle: '',
+      bio: '',
+      profilePictureURL: '',
+      skillsList: [],
+    },
     loading: false,
     error: '',
   },
