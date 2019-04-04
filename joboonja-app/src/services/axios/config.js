@@ -1,8 +1,8 @@
 export const baseConfig = {
-  baseURL: '127.0.0.1',
+  baseURL: 'http://localhost:8080',
 };
 
 
 export const urlsConfig = {
-  getProfile: id => (id === -1 ? '/profile' : `/profile/${id}`),
+  getProfile: id => `/users/${id}`,
 };

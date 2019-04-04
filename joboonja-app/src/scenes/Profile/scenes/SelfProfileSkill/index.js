@@ -4,15 +4,7 @@ import '../../styles.scss';
 import AddSkill from '../../components/AddSkill';
 import SkillItem from '../../../../components/SkillItem';
 
-const skills = [
-  { points: 10, name: 'Html' },
-  { points: 10, name: 'CSS' },
-  { points: 10, name: 'OK' },
-  { points: 10, name: 'HELLO' },
-  { points: 10, name: 'Html' },
-];
-
-function SelfProfileSkill({ id }) {
+function SelfProfileSkill({ id, skills }) {
   const skillRow = skills.map(item => (<SkillItem type="Self" skill={item} />));
   return (
     <div className="container">
@@ -24,6 +16,13 @@ function SelfProfileSkill({ id }) {
 
 SelfProfileSkill.propTypes = {
   id: PropTypes.string.isRequired,
+  skills: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    points: PropTypes.number,
+  })),
 };
 
+SelfProfileSkill.defaultProps = {
+  skills: [],
+};
 export default SelfProfileSkill;

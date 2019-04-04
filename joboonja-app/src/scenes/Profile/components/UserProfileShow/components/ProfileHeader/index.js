@@ -5,7 +5,7 @@ import ProfileImg from './components/ProfileImg';
 import ProfileName from './components/ProfileName';
 
 function ProfileHeader({
-  imgUrl, firstName, lastName, nickName,
+  imgUrl, firstName, lastName, jobTitle,
 }) {
   return (
     <div>
@@ -14,7 +14,7 @@ function ProfileHeader({
       <div className="container">
         <div className="row">
           <ProfileImg imgUrl={imgUrl} />
-          <ProfileName firstName={firstName} lastName={lastName} nickName={nickName} />
+          <ProfileName firstName={firstName} lastName={lastName} jobTitle={jobTitle} />
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@ ProfileHeader.propTypes = {
   imgUrl: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  nickName: PropTypes.string.isRequired,
+  jobTitle: PropTypes.string.isRequired,
 };
 
 export default ProfileHeader;

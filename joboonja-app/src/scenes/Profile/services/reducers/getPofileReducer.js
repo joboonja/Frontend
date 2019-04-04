@@ -6,8 +6,12 @@ const getProfileReducer = handleActions(
     [profileReqSent]: state => ({
       ...state, loading: true, error: '', profile: {},
     }),
-    [profileReqError]: (state, { payload: error }) => ({ ...state, error, loading: false }),
-    [profileReqSuccess]: (state, { payload: profile }) => ({ ...state, profile, loading: false }),
+    [profileReqError]: (state, { payload: error }) => ({
+      ...state, error: error.toString(), loading: false,
+    }),
+    [profileReqSuccess]: (state, { payload: { profile } }) => ({
+      ...state, profile, loading: false,
+    }),
   },
   {
     profile: {},

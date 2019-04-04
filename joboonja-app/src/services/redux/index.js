@@ -1,10 +1,8 @@
-import { combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { combineReducers } from 'redux';
 import Profile from '../../scenes/Profile/services/reducers';
 
 const JoboonjaApp = combineReducers({
   Profile,
-},
-applyMiddleware(thunk));
+});
 
 export default JoboonjaApp;

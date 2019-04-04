@@ -4,14 +4,14 @@ import ProfileHeader from './components/ProfileHeader';
 import ProfileIntro from './components/ProfileIntro';
 
 function UserProfileShow({
-  firstName, lastName, nickName, imgUrl, bio,
+  firstName, lastName, jobTitle, imgUrl, bio,
 }) {
   return (
     <div>
       <ProfileHeader
         firstName={firstName}
         lastName={lastName}
-        nickName={nickName}
+        jobTitle={jobTitle}
         imgUrl={imgUrl}
       />
       <ProfileIntro
@@ -24,7 +24,7 @@ function UserProfileShow({
 UserProfileShow.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  nickName: PropTypes.string.isRequired,
+  jobTitle: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
 };
