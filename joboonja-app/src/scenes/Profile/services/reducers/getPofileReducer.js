@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions';
 import { profileReqError, profileReqSuccess, profileReqSent } from '../actions/getProfileActions';
+import { removeSkillError, removeSkillSent } from '../actions/removeSkillActions';
 
 const getProfileReducer = handleActions(
   {
@@ -12,6 +13,22 @@ const getProfileReducer = handleActions(
     [profileReqSuccess]: (state, { payload: { profile } }) => ({
       ...state, profile, loading: false,
     }),
+    [removeSkillSent]: (state, { payload: skill }) => {
+      const newProfile = state.profile;
+      newProfile.skillsList = state.profile.skillsList.filter(item => skill.name !== item.name);
+
+      return {
+        ...state, profile: newProfile,
+      };
+    },
+    [removeSkillError]: (state, { payload: { skill } }) => {
+      const newProfile = state.profile;
+      newProfile.skillsList = [skill].concat(state.profile.skillsList);
+
+      return {
+        ...state, profile: newProfile,
+      };
+    },
   },
   {
     profile: {

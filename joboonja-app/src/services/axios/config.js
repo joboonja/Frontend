@@ -5,4 +5,5 @@ export const baseConfig = {
 
 export const urlsConfig = {
   getProfile: id => `/users/${id}`,
+  removeSkill: skillName => `/skills/${skillName}`,
 };

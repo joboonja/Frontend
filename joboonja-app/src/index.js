@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './fonts/generalStyles.css';
-import './fonts/iransans-fonts/fonts.css';
+import './assets/fonts/generalStyles.css';
+import './assets/fonts/iransans-fonts/fonts.css';
 
 import * as serviceWorker from './serviceWorker';
 

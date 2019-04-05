@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import { MuiThemeProvider } from '@material-ui/core';
 import JoboonjaApp from './services/redux';
 import ProfileRoute from './scenes/Profile';
-import theme from './services/theme/MUITheme';
+import theme from './assets/theme/MUITheme';
 
 const store = createStore(JoboonjaApp, applyMiddleware(thunk));
 

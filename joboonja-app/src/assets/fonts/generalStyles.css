@@ -1,0 +1,6 @@
+/* No CSS */
+@import url("./iransans-fonts/fonts.css");
+* {
+  font-family: IRANSans;
+  direction: rtl;
+}

@@ -16,8 +16,8 @@ function OthersSkillItem({ onClick, endorsed, skill }) {
 
   return (
     <span className="skillItem othersSkillItem">
-      {points}
       {skill.name}
+      {points}
     </span>
   );
 }

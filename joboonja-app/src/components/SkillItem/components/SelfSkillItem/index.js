@@ -6,10 +6,10 @@ import '../../styles.scss';
 function SelfSkillItem({ onClick, skill }) {
   return (
     <span className="skillItem selfEndorseSkillItem ">
+      {skill.name}
       <button type="button" onClick={onClick} data-hover="-" className="badge selfEndorseBadge">
         {skill.points}
       </button>
-      {skill.name}
     </span>
   );
 }
