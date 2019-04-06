@@ -5,7 +5,7 @@ import SkillSelect from './components/SkillsSelect';
 import SkillTitle from './components/SkillTitle';
 import './styles.scss';
 
-export default function AddSkill({ skillNames, onAddSkill }) {
+export default function AddSkill({ onAddSkill }) {
   return (
     <div className="add-skill-container">
       <div className="col-auto">
@@ -15,10 +15,10 @@ export default function AddSkill({ skillNames, onAddSkill }) {
       </div>
       <div className="add-skill-section row">
         <div className="col-7 add-skill-select-container">
-          <SkillSelect skills={skillNames} />
+          <SkillSelect />
         </div>
         <div className="col-5 add-skill-button-container">
-          <AddButton onClick={onAddSkill}>
+          <AddButton onClick={onAddSkill} loading={false}>
             افزودن مهارت
           </AddButton>
         </div>
@@ -28,7 +28,6 @@ export default function AddSkill({ skillNames, onAddSkill }) {
 }
 
 AddSkill.propTypes = {
-  skillNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   onAddSkill: PropTypes.func,
 };
 AddSkill.defaultProps = {

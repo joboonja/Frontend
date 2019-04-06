@@ -9,20 +9,7 @@ import { requestForRemoveSkill } from '../../services/actions/removeSkillActions
 class SelfProfileSkill extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: false,
-    };
     this.skillClicked = this.skillClicked.bind(this);
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.loading !== prevState.loading) {
-      if (nextProps.error) {
-        console.log(nextProps.error);
-      }
-      return { loading: nextProps.loading };
-    }
-    return null;
   }
 
   skillClicked(skill) {
@@ -31,11 +18,11 @@ class SelfProfileSkill extends React.Component {
   }
 
   render() {
-    const { id, skills } = this.props;
+    const { skills } = this.props;
     const skillRow = skills.map(item => (<SkillItem type="Self" skill={item} onClick={() => this.skillClicked(item)} />));
     return (
       <div className="container">
-        <AddSkill skillNames={['html']} />
+        <AddSkill />
         {skillRow}
       </div>
     );
@@ -43,7 +30,6 @@ class SelfProfileSkill extends React.Component {
 }
 
 SelfProfileSkill.propTypes = {
-  id: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     points: PropTypes.number,

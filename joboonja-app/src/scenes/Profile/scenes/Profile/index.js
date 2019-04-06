@@ -37,7 +37,7 @@ class Profile extends React.Component {
           imgUrl={profile.profilePictureURL}
         />
         {
-          isSelf ? <SelfProfileSkill id={id} />
+          isSelf ? <SelfProfileSkill />
             : <OthersProfileSkill id={id} skills={profile.skillsList} />
         }
       </div>

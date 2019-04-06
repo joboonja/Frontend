@@ -7,6 +7,8 @@ import { MuiThemeProvider } from '@material-ui/core';
 import JoboonjaApp from './services/redux';
 import ProfileRoute from './scenes/Profile';
 import theme from './assets/theme/MUITheme';
+import 'react-toastify/dist/ReactToastify.css';
+import Toast from './components/Toast';
 
 const store = createStore(JoboonjaApp, applyMiddleware(thunk));
 
@@ -16,6 +18,7 @@ function App() {
       <Provider store={store}>
         <MuiThemeProvider theme={theme}>
           <div>
+            <Toast />
             <Route path="/profile" component={ProfileRoute} />
           </div>
         </MuiThemeProvider>

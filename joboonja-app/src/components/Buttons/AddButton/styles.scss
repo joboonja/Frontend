@@ -15,3 +15,13 @@
 .add-skill-button:hover{
   background-color: rgb(42, 138, 166);
 }
+.loadingContainer{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:0;
+  left: 0;
+}
