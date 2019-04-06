@@ -4,7 +4,7 @@ import '../../styles.scss';
 import SkillItem from '../../../../components/SkillItem';
 
 function OthersProfileSkill({ id, skills }) {
-  const skillRow = skills.map((item, index) => (<SkillItem type="Others" skill={item} endorsed={index % 2 === 0} />));
+  const skillRow = skills.map(item => (<SkillItem type="Others" skill={item} endorsed={item.peopleWhoEndrosed.indexOf(id) < 0} />));
   return (
     <div className="container">
       {skillRow}
@@ -17,6 +17,7 @@ OthersProfileSkill.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     points: PropTypes.number,
+    peopleWhoEndrosed: PropTypes.arrayOf(PropTypes.string),
   })),
 };
 

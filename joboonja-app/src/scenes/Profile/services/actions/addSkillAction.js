@@ -1,13 +1,13 @@
-import { createActions } from 'redux-actions';
+import { createActions, createAction } from 'redux-actions';
 import Axios from '../../../../services/axios';
 import { urlsConfig } from '../../../../services/axios/config';
 
 export const { addSkillReqSent, addSkillReqError, addSkillReqSuccess } = createActions(
   'ADD_SKILL_REQ_SENT',
-  'ADD_SKILL_REQ_ERR',
+  'ADD_SKILL_REQ_ERROR',
   'ADD_SKILL_REQ_SUCCESS',
 );
-
+console.log(addSkillReqSent, addSkillReqError, addSkillReqSuccess);
 export function requestForAddSkill(skillName) {
   return (dispatch) => {
     dispatch(addSkillReqSent(skillName));
@@ -20,3 +20,5 @@ export function requestForAddSkill(skillName) {
       });
   };
 }
+
+export const skillValueChange = createAction('SKILL_VALUE_CHANGE');

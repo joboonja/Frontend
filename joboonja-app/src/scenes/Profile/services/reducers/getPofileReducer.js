@@ -1,6 +1,11 @@
 import { handleActions } from 'redux-actions';
 import { profileReqError, profileReqSuccess, profileReqSent } from '../actions/getProfileActions';
 import { removeSkillError, removeSkillSent } from '../actions/removeSkillActions';
+import { addSkillReqSuccess } from '../actions/addSkillAction';
+import { toast } from 'react-toastify';
+import { ToastMsg } from '../../../../components/Toast';
+import { successes } from '../../../../services/toast/config';
+import React from 'react';
 
 const getProfileReducer = handleActions(
   {
@@ -28,6 +33,13 @@ const getProfileReducer = handleActions(
       return {
         ...state, profile: newProfile,
       };
+    },
+    [addSkillReqSuccess]: (state, { payload: { skills } }) => {
+      const newProfile = state.profile;
+      newProfile.skillsList = skills;
+      return ({
+        ...state, profile: newProfile,
+      });
     },
   },
   {

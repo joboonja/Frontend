@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import { errors, successes } from '../../../../services/toast/config';
 import { ToastMsg } from '../../../../components/Toast';
 import { allSkillsReqErr, allSkillsReqSuccess, allSkillsReqSent } from '../actions/getAllSkillsActions';
+import { addSkillReqSuccess } from '../actions/addSkillAction';
+import { removeSkillSuccess } from '../actions/removeSkillActions';
 
 const getAllSkillsReducer = handleActions(
   {
@@ -18,6 +20,15 @@ const getAllSkillsReducer = handleActions(
     },
     [allSkillsReqSuccess]: (state, { payload: { skills } }) => ({
       ...state, loading: false, success: true, skills,
+    }),
+    [addSkillReqSuccess]: (state, { payload: { skillName } }) => {
+      const newSkills = state.skills.filter(item => skillName !== item.name);
+      return ({
+        ...state, skills: newSkills,
+      });
+    },
+    [removeSkillSuccess]: (state, { payload: skillName }) => ({
+      ...state, skills: state.skills.concat([{ name: skillName }]),
     }),
   },
   {

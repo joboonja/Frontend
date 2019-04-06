@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import AddButton from '../../../../components/Buttons/AddButton';
 import SkillSelect from './components/SkillsSelect';
 import SkillTitle from './components/SkillTitle';
 import './styles.scss';
+import { requestForAddSkill } from '../../services/actions/addSkillAction';
 
-export default function AddSkill({ onAddSkill }) {
+function AddSkill({ addSkill, skill, loading }) {
   return (
     <div className="add-skill-container">
       <div className="col-auto">
@@ -18,7 +20,14 @@ export default function AddSkill({ onAddSkill }) {
           <SkillSelect />
         </div>
         <div className="col-5 add-skill-button-container">
-          <AddButton onClick={onAddSkill} loading={false}>
+          <AddButton
+            onClick={() => {
+              if (skill) {
+                addSkill(skill);
+              }
+            }}
+            loading={loading}
+          >
             افزودن مهارت
           </AddButton>
         </div>
@@ -28,8 +37,20 @@ export default function AddSkill({ onAddSkill }) {
 }
 
 AddSkill.propTypes = {
-  onAddSkill: PropTypes.func,
+  addSkill: PropTypes.func.isRequired,
+  skill: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 AddSkill.defaultProps = {
-  onAddSkill: () => {},
 };
+
+const mapStateToProps = store => ({
+  skill: store.Profile.addSkillReducer.skill,
+  loading: store.Profile.addSkillReducer.loading,
+});
+
+const mapDispatchToProps = dispatch => ({
+  addSkill: (skillName) => { dispatch(requestForAddSkill(skillName)); },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddSkill);

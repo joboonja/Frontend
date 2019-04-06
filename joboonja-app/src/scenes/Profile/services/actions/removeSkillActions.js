@@ -12,7 +12,7 @@ export function requestForRemoveSkill(skill) {
     dispatch(removeSkillSent(skill));
     Axios.delete(urlsConfig.removeSkill(skill.name))
       .then(() => {
-        dispatch(removeSkillSuccess());
+        dispatch(removeSkillSuccess(skill.name));
       })
       .catch((error) => {
         dispatch(removeSkillError({ error, skill }));
