@@ -8,4 +8,5 @@ export const urlsConfig = {
   removeSkill: skillName => `/skills/${skillName}`,
   addSkill: '/skills',
   allSkills: '/endorsableSkills',
+  endorse: id => `/skills/${id}`,
 };

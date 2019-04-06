@@ -5,7 +5,7 @@ import SelfSkillItem from './components/SelfSkillItem';
 import OthersSkillItem from './components/OthersSkillItem';
 
 export default function SkillItem({
-  type, endorsed, onClick, skill,
+  type, endorsed, onClick, skill, loading
 }) {
   switch (type) {
     case 'Self':
@@ -14,7 +14,7 @@ export default function SkillItem({
       );
     case 'Others':
       return (
-        <OthersSkillItem skill={skill} onClick={onClick} endorsed={endorsed} />
+        <OthersSkillItem skill={skill} onClick={onClick} endorsed={endorsed} loading={loading} />
       );
     default:
       return (
@@ -31,8 +31,10 @@ SkillItem.propTypes = {
     name: PropTypes.string,
     points: PropTypes.number,
   }).isRequired,
+  loading: PropTypes.bool,
 };
 SkillItem.defaultProps = {
   endorsed: true,
   onClick: () => {},
+  loading: false,
 };

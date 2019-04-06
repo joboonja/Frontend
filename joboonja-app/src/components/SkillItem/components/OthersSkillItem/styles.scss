@@ -1,6 +1,6 @@
 .othersSkillItem button:hover{
     font-size: 0;
-    line-height: 0; 
+    line-height: 0;
 }
 .othersSkillItem button:hover:before {
     content: attr(data-hover);

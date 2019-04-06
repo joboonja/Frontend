@@ -7,7 +7,7 @@ export const { addSkillReqSent, addSkillReqError, addSkillReqSuccess } = createA
   'ADD_SKILL_REQ_ERROR',
   'ADD_SKILL_REQ_SUCCESS',
 );
-console.log(addSkillReqSent, addSkillReqError, addSkillReqSuccess);
+
 export function requestForAddSkill(skillName) {
   return (dispatch) => {
     dispatch(addSkillReqSent(skillName));

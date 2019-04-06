@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import React from 'react';
 import { toast } from 'react-toastify';
-import { errors, successes } from '../../../../services/toast/config';
+import { errors} from '../../../../services/toast/config';
 import { ToastMsg } from '../../../../components/Toast';
 import { allSkillsReqErr, allSkillsReqSuccess, allSkillsReqSent } from '../actions/getAllSkillsActions';
 import { addSkillReqSuccess } from '../actions/addSkillAction';
