@@ -9,6 +9,7 @@ import ProfileRoute from './scenes/Profile';
 import theme from './assets/theme/MUITheme';
 import 'react-toastify/dist/ReactToastify.css';
 import Toast from './components/Toast';
+import Home from './scenes/Home';
 
 const store = createStore(JoboonjaApp, applyMiddleware(thunk));
 
@@ -20,6 +21,7 @@ function App() {
           <div>
             <Toast />
             <Route path="/profile" component={ProfileRoute} />
+            <Route path="/" exact component={Home} />
           </div>
         </MuiThemeProvider>
       </Provider>

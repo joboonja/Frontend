@@ -1,0 +1,20 @@
+$size: 45px;
+.profileSummaryPic {
+  width: $size;
+  height: $size;
+  border-radius: 5px;
+  background: #666666;
+}
+
+.profileSummaryName {
+  font-size: 10pt;
+  text-align: right;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.profileSummaryJobTitle{
+  font-size: 9pt;
+  color: #636363;
+  text-align: right;
+}
