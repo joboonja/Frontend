@@ -5,13 +5,13 @@ import './styles.scss';
 import blankProfile from './assets/blank_profile.png';
 
 function ProfileSummary({
-  onClick, src, firstName, lastName, jobTitle,
+  onClick, imgSrc, firstName, lastName, jobTitle,
 }) {
   return (
     <div style={{ marginBottom: '4px' }}>
       <Card onClick={onClick} style={{ width: '100%' }} hoverable>
         <div style={{ display: 'flex' }}>
-          <img alt="p" className="profileSummaryPic" src={src || blankProfile} />
+          <img alt="p" className="profileSummaryPic" src={imgSrc || blankProfile} />
           <div style={{ display: 'flex', flexDirection: 'column', marginRight: '8px' }}>
             <div className="profileSummaryName">
               {`${firstName} ${lastName}`}
@@ -28,7 +28,7 @@ function ProfileSummary({
 
 ProfileSummary.propTypes = {
   onClick: PropTypes.func,
-  src: PropTypes.string,
+  imgSrc: PropTypes.string,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   jobTitle: PropTypes.string.isRequired,
@@ -36,7 +36,7 @@ ProfileSummary.propTypes = {
 
 ProfileSummary.defaultProps = {
   onClick: null,
-  src: '',
+  imgSrc: '',
 };
 
 export default ProfileSummary;

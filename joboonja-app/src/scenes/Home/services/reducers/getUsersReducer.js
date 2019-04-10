@@ -6,7 +6,7 @@ import { ToastMsg } from '../../../../components/Toast';
 import { usersReqErr, usersReqSuccess, usersReqSent } from '../actions/getUsersAction';
 
 
-const getAllSkillsReducer = handleActions(
+const getUsersReducer = handleActions(
   {
     [usersReqSent]: state => ({
       ...state, loading: true, error: '', success: false, skills: [],
@@ -28,4 +28,4 @@ const getAllSkillsReducer = handleActions(
     users: [],
   },
 );
-export default getAllSkillsReducer;
+export default getUsersReducer;
