@@ -12,11 +12,6 @@ function ProjectInfoShow(
 }
 
 ProjectInfoShow.propTypes = {
-  // firstName: PropTypes.string.isRequired,
-  // lastName: PropTypes.string.isRequired,
-  // jobTitle: PropTypes.string.isRequired,
-  // imgUrl: PropTypes.string.isRequired,
-  // bio: PropTypes.string.isRequired,
 };
 
 export default ProjectInfoShow;

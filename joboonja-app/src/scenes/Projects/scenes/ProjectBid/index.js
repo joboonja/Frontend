@@ -7,6 +7,10 @@ import Footer from '../../../../components/Footer';
 import { requestForProject } from '../../services/actions/getProjectActions';
 import PageLoading from '../../../../components/Loadings/PageLoading';
 import PageError from '../../../../components/Errors/PageError';
+import './styles.scss';
+import ProjectCard from '../../components/ProjectInfoBox/components/ProjectCard';
+import '../../../Profile/components/UserProfileShow/components/ProfileHeader/styles.scss';
+
 
 class ProjectBid extends React.Component {
   constructor(props) {
@@ -22,13 +26,17 @@ class ProjectBid extends React.Component {
 
   getProjectInfo() {
     const {
-      id,
+      id, project,
     } = this.props;
     return (
-      <div className="main">
+      <div>
         <div className="topBodyProject" />
         <div className="topBodyShadow" />
-        <projectCard />
+        <div className="container cardItem">
+          <div className="projectInfo">
+            <ProjectCard project={project} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -56,17 +64,16 @@ class ProjectBid extends React.Component {
 ProjectBid.propTypes = {
   id: PropTypes.string.isRequired,
   getProject: PropTypes.func.isRequired,
-  // profile: PropTypes.shape({
-  //   firstName: PropTypes.string,
-  //   lastName: PropTypes.string,
-  //   jobTitle: PropTypes.string,
-  //   bio: PropTypes.string,
-  //   profilePictureURL: PropTypes.string,
-  //   skillsList: PropTypes.arrayOf(PropTypes.shape({
-  //     name: PropTypes.string,
-  //     points: PropTypes.number,
-  //   })),
-  // }).isRequired,
+  project: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    imageURL: PropTypes.string,
+    budget: PropTypes.number,
+    skills: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+      points: PropTypes.number,
+    })),
+  }).isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
 };

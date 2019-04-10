@@ -1,6 +1,9 @@
+$border-radius: 5px;
+
 .cardItem {
   background-color: rgb(255, 255, 255);
   color: rgb(37, 41, 45);
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
 }
+

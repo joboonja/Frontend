@@ -1,0 +1,25 @@
+$border-radius: 5px;
+
+.topBodyProject {
+  height: 160px;
+  background-color: #c3edf1;
+  border-bottom: 10px;
+  border-color: black;
+}
+
+.cardItem {
+  background-color: rgb(255, 255, 255);
+  color: rgb(37, 41, 45);
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  box-shadow: 0 0 4px 1px rgba($color: #000000, $alpha: 0.1);
+}
+
+.projectInfo {
+  display: flex;
+  padding: 20px;
+  padding-top: 44px;
+  margin-top: -50px;
+  border-bottom: 2px dashed rgb(89, 203, 214);
+  text-align: right;
+}
