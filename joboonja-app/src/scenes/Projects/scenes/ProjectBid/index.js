@@ -34,7 +34,7 @@ class ProjectBid extends React.Component {
         <div className="topBodyShadow" />
         <div className="container cardItem">
           <div className="projectInfo">
-            <ProjectCard imgUrl={project.imageURL} />
+            <ProjectCard project={project} />
           </div>
         </div>
       </div>
