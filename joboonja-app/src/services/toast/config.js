@@ -3,6 +3,7 @@ export const errors = {
   CAN_NOT_ADD_SKILL: skillName => `توانایی ${skillName} اضافه نشد.`,
   CAN_NOT_GET_ALL_SKILLS: 'خطا در دریافت توانایی‌های قابل اضافه.',
   CAN_NOT_ENDORSE_SKILL: skillName => `توانایی ${skillName} تایید نشد.`,
+  CAN_NOT_GET_USERS: 'خطا در دریافت کاربران.',
 };
 
 export const successes = {
