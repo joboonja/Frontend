@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
       <Navbar />
-      <div className="main">
+      <div className="main background">
         <HomeHeader />
         <div className="container" style={{ top: '-25px', position: 'relative' }}>
           <div className="row ">

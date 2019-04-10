@@ -9,7 +9,7 @@ const cardStyle = {
 
 function SearchUser() {
   return (
-    <div style={{ marginBottom: '15px' }}>
+    <div style={{ padding: '5px' }}>
       <Card style={cardStyle} hoverable>
         <input className="searchUser" placeholder="جستجوی نام کاربر" />
       </Card>

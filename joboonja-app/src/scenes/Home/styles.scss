@@ -1,21 +1,32 @@
-.scrolableSectionSection {
-  height: 400px;
+.scrollableSectionSection {
+  max-height: 410px;
   width: 100%;
-  overflow: scroll;
-  overflow-x: visible;
+  overflow-y: scroll;
   direction: ltr ;
-  padding: 5px;
   overflow-style: marquee-block;
-
+  padding: 5px;
 }
+//.scrollableSectionSection::-webkit-scrollbar
+//{
+//  width: 2px;
+//  background-color: rgba(245, 245, 245, 0);
+//}
+//
+//.scrollableSectionSection::-webkit-scrollbar-thumb
+//{
+//  background-color: #d1d1d1;
+//}
 
-.scrolableSectionSection::-webkit-scrollbar
-{
-  width: 2px;
-  background-color: rgba(245, 245, 245, 0);
-}
-
-.scrolableSectionSection::-webkit-scrollbar-thumb
-{
-  background-color: #d1d1d1;
+.shadowContainer {
+  position:absolute; display:block;
+  margin:0px;
+  padding-right: 10px;
+  padding-left: 10px;
+  top:0;
+  left: 0;
+  height:100%; width:100%;
+  box-shadow:  inset 0px -103px 81px -6px rgba(255, 255, 255, 0.29);
+  background:none;
+  z-index:10 !important;
+  pointer-events:none;
 }
