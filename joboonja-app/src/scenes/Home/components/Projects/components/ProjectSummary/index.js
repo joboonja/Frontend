@@ -6,11 +6,11 @@ import './styles.scss';
 import ProjectDescription from './components/ProjectDescription';
 
 function ProjectSummary({
-  image, title, description, budget, skills, deadline
+  image, title, description, budget, skills, deadline, onClick
 }) {
   return (
     <div>
-      <Card style={{ width: '100%', marginBottom: '13px' }} hoverable onClick={() => {}}>
+      <Card style={{ width: '100%', marginBottom: '13px' }} hoverable onClick={onClick}>
         <div className="row">
           <div className="col-md-2">
             <img src={image || blankProject} className="projectSummaryImage" alt="project" />
@@ -37,9 +37,11 @@ ProjectSummary.propTypes = {
   budget: PropTypes.number.isRequired,
   skills: PropTypes.arrayOf(PropTypes.Object).isRequired,
   deadline: PropTypes.number.isRequired,
+  onClick: PropTypes.func,
 };
 ProjectSummary.defaultProps = {
   image: '',
+  onClick: null,
 };
 
 export default ProjectSummary;

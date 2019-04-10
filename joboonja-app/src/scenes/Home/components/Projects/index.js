@@ -1,17 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProjectSummary from './components/ProjectSummary';
 import { requestForProjects } from '../../services/actions/getProjectsActions';
 import PageLoading from '../../../../components/Loadings/PageLoading';
 
 class Projects extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: '',
+    };
+  }
+
   componentDidMount() {
     const { getProjects } = this.props;
     getProjects();
   }
 
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect push to={`/projects/${redirect}`} />;
+    }
     const { projects, loading } = this.props;
     const projectsList = projects.map(item => (
       <ProjectSummary
@@ -21,6 +33,7 @@ class Projects extends React.Component {
         skills={item.skills}
         budget={item.budget}
         deadline={item.deadline}
+        onClick={() => this.setState({ redirect: item.id })}
       />
     ));
     return (
