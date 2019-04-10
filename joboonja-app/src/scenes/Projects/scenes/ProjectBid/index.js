@@ -55,7 +55,6 @@ class ProjectBid extends React.Component {
             : error ? <PageError errorMsg={error} />
               : this.getProjectInfo()}
         </div>
-        <Footer />
       </div>
     );
   }

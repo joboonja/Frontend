@@ -58,7 +58,6 @@ class Profile extends React.Component {
             : error ? <PageError errorMsg={error} />
               : this.getProfileShow()}
         </div>
-        <Footer />
       </div>
     );
   }
