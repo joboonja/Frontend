@@ -1,0 +1,23 @@
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchBar {
+  background: rgba(221, 247, 249, 1);
+  width: 60%;
+  height: 55px;
+  margin: 10px;
+  border-bottom: 3px solid #41a9ba;
+  display: flex;
+  align-items: center;
+}
+.searchInputContainer {
+  width: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
+  text-align: right;
+}
+.searchButtonContainer {
+  padding: 10px;
+}

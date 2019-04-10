@@ -1,0 +1,12 @@
+.searchInput {
+  width: 100%;
+  border: none;
+  background: none;
+}
+.searchInput::placeholder {
+  color: #7daeb1;
+}
+.searchInput:focus {
+  border: none;
+  outline: none;
+}

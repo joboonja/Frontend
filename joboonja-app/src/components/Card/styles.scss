@@ -1,0 +1,16 @@
+.cardContainer {
+  box-shadow: 0 1px 4px rgba(#000000, 0.1);
+  background: #ffffff;
+  border-radius: 3px;
+  display: block;
+  padding: 10px;
+}
+.cardContainerHoverable{
+  transition: 0.5s;
+}
+.cardContainerHoverable:hover {
+  box-shadow: 0 2px 8px rgba(#000000, 0.15)
+}
+.cardContainerClickable {
+  cursor: pointer;
+}

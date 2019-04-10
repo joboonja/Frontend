@@ -1,0 +1,17 @@
+.searchUser {
+  border: none;
+  background: rgb(246, 246, 246);
+  width: 100%;
+  height: 34px;
+  padding: 5px;
+  padding-right: 10px;
+  font-size: 10pt;
+}
+.searchUser::placeholder {
+  color: rgb(127, 127, 127);
+}
+.searchUser:focus {
+  border: none;
+  outline: none;
+}
+
