@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import { MuiThemeProvider } from '@material-ui/core';
 import JoboonjaApp from './services/redux';
 import ProfileRoute from './scenes/Profile';
+import ProjectRoute from './scenes/Projects'
 import theme from './assets/theme/MUITheme';
 import 'react-toastify/dist/ReactToastify.css';
 import Toast from './components/Toast';
