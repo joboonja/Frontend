@@ -9,19 +9,18 @@ const getProjectReducer = handleActions(
     [projectReqError]: (state, { payload: error }) => ({
       ...state, error: error.toString(), loading: false,
     }),
-    [projectReqSuccess]: (state, { payload: { profile } }) => ({
-      ...state, profile, loading: false,
+    [projectReqSuccess]: (state, { payload: { project } }) => ({
+      ...state, project, loading: false,
     }),
   },
   {
-    // profile: {
-    //   firstName: '',
-    //   lastName: '',
-    //   jobTitle: '',
-    //   bio: '',
-    //   profilePictureURL: '',
-    //   skillsList: [],
-    // },
+    project: {
+      title: '',
+      description: '',
+      imageURL: '',
+      budget: '',
+      skills: [],
+    },
     loading: false,
     error: '',
   },
