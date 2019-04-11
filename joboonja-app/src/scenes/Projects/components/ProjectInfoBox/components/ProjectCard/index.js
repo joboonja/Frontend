@@ -19,6 +19,7 @@ function ProjectCard({ project }) {
         <ProjectTitle title={project.title} />
         <ProjectTime showStyle="projectCard" time={project.deadline} />
         <IconItem type="money" text={budgetNum} textTitle="بودجه:" />
+        <ProjectTime showStyle="winner" time={project.deadline} />
         <ProjectDetailedDescription description={project.description} />
       </div>
     </div>

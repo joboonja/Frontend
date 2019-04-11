@@ -12,7 +12,9 @@ function IconItem({ textTitle, text, type }) {
         <div className="col-auto projectIcon">
           <i className={type === 'deadline' ? 'flaticon-deadline projectIcon'
             : type === 'money' ? 'flaticon-money-bag projectIcon money'
-              : type === 'deadlineReached' ? 'flaticon-deadline projectIcon deadlinePassed' : ''}
+              : type === 'deadlineReached' ? 'flaticon-deadline projectIcon deadlinePassed'
+                : type === 'winner' ? 'flaticon-check-mark projectIcon winner'
+                  : ''}
           />
         </div>
         <ProjectIconTitle text={textTitle} type={type} />
