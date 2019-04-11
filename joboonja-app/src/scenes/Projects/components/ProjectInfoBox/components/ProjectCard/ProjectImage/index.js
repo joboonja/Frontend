@@ -5,7 +5,7 @@ import blankProject from './assets/blank_project.png';
 
 function ProjectImg({ imgUrl }) {
   return (
-    <img className="projectImage" src={imgUrl || blankProject} alt="PROJECT" />
+      <img className="projectImage" src={imgUrl || blankProject} alt="PROJECT" />
   );
 }
 

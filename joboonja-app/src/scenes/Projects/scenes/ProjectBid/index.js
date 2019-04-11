@@ -10,6 +10,8 @@ import PageError from '../../../../components/Errors/PageError';
 import './styles.scss';
 import ProjectCard from '../../components/ProjectInfoBox/components/ProjectCard';
 import '../../../Profile/components/UserProfileShow/components/ProfileHeader/styles.scss';
+import SkillsCard from '../../components/ProjectInfoBox/components/SkillsCard';
+import BidCard from "../../components/ProjectInfoBox/components/BidCard";
 
 
 class ProjectBid extends React.Component {
@@ -33,10 +35,10 @@ class ProjectBid extends React.Component {
         <div className="topBodyProject" />
         <div className="topBodyShadow" />
         <div className="container cardItem">
-          <div className="projectInfo">
-            <ProjectCard project={project} />
-          </div>
+          <ProjectCard project={project} />
         </div>
+        <SkillsCard skills={project.skills} />
+        <BidCard />
       </div>
     );
   }
