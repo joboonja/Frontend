@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './assets/bootstrap.min.css';
 import App from './App';
 import './assets/fonts/generalStyles.css';
 import './assets/fonts/iransans-fonts/fonts.css';
