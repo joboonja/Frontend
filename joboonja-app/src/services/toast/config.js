@@ -5,6 +5,9 @@ export const errors = {
   CAN_NOT_ENDORSE_SKILL: skillName => `توانایی ${skillName} تایید نشد.`,
   CAN_NOT_GET_USERS: 'خطا در دریافت کاربران.',
   CAN_NOT_GET_PROJECTS: 'خطا در دریافت پروژه‌ها.',
+  USER_EMPTY: 'نام کاربری نمی‌تواند خالی باشد.',
+  PASSWORD_EMPTY: 'رمز عبور نمی‌تواند خالی باشد.',
+  PASSWORD_SIX_CHAR: 'رمز عبور نمی‌تواند کمتر از ۶ کاراکتر باشد.',
 };
 
 export const successes = {

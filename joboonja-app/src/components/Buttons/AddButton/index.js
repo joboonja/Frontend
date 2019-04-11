@@ -7,7 +7,7 @@ import { ClipLoader } from 'react-spinners';
 
 
 function AddButton({
-  children, onClick, loading, theme, color,
+  children, onClick, loading, theme, color, width, disabled
 }) {
   return (
     <div>
@@ -17,8 +17,8 @@ function AddButton({
         className="add-skill-button"
         type="button"
         onClick={onClick}
-        disabled={loading}
-        style={{ width: '100%', backgroundColor: color }}
+        disabled={loading || disabled}
+        style={{ width: width || '100%', backgroundColor: color }}
       >
 
         {children}
@@ -39,6 +39,8 @@ AddButton.propTypes = {
   loading: PropTypes.bool,
   theme: PropTypes.object.isRequired,
   color: PropTypes.string,
+  width: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 AddButton.defaultProps = {
@@ -47,6 +49,8 @@ AddButton.defaultProps = {
   },
   loading: false,
   color: null,
+  width: '',
+  disabled: false,
 };
 
 export default withTheme()(AddButton);
