@@ -14,7 +14,8 @@ function IconItem({ textTitle, text, type }) {
             : type === 'money' ? 'flaticon-money-bag projectIcon money'
               : type === 'deadlineReached' ? 'flaticon-deadline projectIcon deadlinePassed'
                 : type === 'winner' ? 'flaticon-check-mark projectIcon winner'
-                  : ''}
+                  : type === 'cannotBid' ? 'flaticon-danger alreadyBidIcon deadlinePassed'
+                    : ''}
           />
         </div>
         <ProjectIconTitle text={textTitle} type={type} />

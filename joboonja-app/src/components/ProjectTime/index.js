@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ProjectSummaryTime from './components/ProjectSummaryTime';
 import convertEnglishNumbersToPersian from '../../services/convertEnglishNumbersToPersian';
 import IconItem from '../IconItem';
+import BidCard from '../../scenes/Projects/components/ProjectInfoBox/components/BidCard';
 
 function ProjectTime({ time, showStyle }) {
   const days = Math.floor((time - Date.now()) / (36e5 * 24));
@@ -22,15 +23,16 @@ function ProjectTime({ time, showStyle }) {
       {
         showStyle === 'winner' ? (ended ? <IconItem type="winner" text="تعیین نشده" textTitle="برنده: " /> : '')
           : showStyle === 'projectCard' ? (ended ? <IconItem type="deadlineReached" text="مهلت تمام شده" textTitle="" />
-            : <IconItem type="deadline" text={`${days} روز و ${hours} ساعت و ${minutes} دقیقه`} textTitle="زمان باقی‌مانده:" />)
-            : (
-              <ProjectSummaryTime
-                days={daysStr}
-                hours={hoursStr}
-                minutes={minutesStr}
-                ended={ended}
-              />
-            )
+            : <IconItem type="deadline" text={`${daysStr} روز و ${hoursStr} ساعت و ${minutesStr} دقیقه`} textTitle="زمان باقی‌مانده:" />)
+            : showStyle === 'bidCard' ? <BidCard ended={ended} />
+              : (
+                <ProjectSummaryTime
+                  days={daysStr}
+                  hours={hoursStr}
+                  minutes={minutesStr}
+                  ended={ended}
+                />
+              )
      }
     </div>
   );

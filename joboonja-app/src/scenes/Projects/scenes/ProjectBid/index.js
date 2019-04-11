@@ -11,6 +11,7 @@ import ProjectCard from '../../components/ProjectInfoBox/components/ProjectCard'
 import '../../../Profile/components/UserProfileShow/components/ProfileHeader/styles.scss';
 import SkillsCard from '../../components/ProjectInfoBox/components/SkillsCard';
 import BidCard from '../../components/ProjectInfoBox/components/BidCard';
+import ProjectTime from '../../../../components/ProjectTime';
 
 
 class ProjectBid extends React.Component {
@@ -37,7 +38,7 @@ class ProjectBid extends React.Component {
           <ProjectCard project={project} />
         </div>
         <SkillsCard skills={project.skills} />
-        <BidCard />
+        <ProjectTime showStyle="bidCard" time={project.deadline} />
       </div>
     );
   }
