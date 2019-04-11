@@ -1,15 +1,16 @@
 /* eslint-disable no-nested-ternary */
-import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from '../../../../components/Navbar';
-import Footer from '../../../../components/Footer';
 import { requestForProject } from '../../services/actions/getProjectActions';
 import PageLoading from '../../../../components/Loadings/PageLoading';
 import PageError from '../../../../components/Errors/PageError';
 import './styles.scss';
 import ProjectCard from '../../components/ProjectInfoBox/components/ProjectCard';
 import '../../../Profile/components/UserProfileShow/components/ProfileHeader/styles.scss';
+import SkillsCard from '../../components/ProjectInfoBox/components/SkillsCard';
+import BidCard from '../../components/ProjectInfoBox/components/BidCard';
 
 
 class ProjectBid extends React.Component {
@@ -33,10 +34,10 @@ class ProjectBid extends React.Component {
         <div className="topBodyProject" />
         <div className="topBodyShadow" />
         <div className="container cardItem">
-          <div className="projectInfo">
-            <ProjectCard project={project} />
-          </div>
+          <ProjectCard project={project} />
         </div>
+        <SkillsCard skills={project.skills} />
+        <BidCard />
       </div>
     );
   }
@@ -68,6 +69,7 @@ ProjectBid.propTypes = {
     description: PropTypes.string,
     imageURL: PropTypes.string,
     budget: PropTypes.number,
+    deadline: PropTypes.number,
     skills: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       points: PropTypes.number,

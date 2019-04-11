@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 function ProjectTitle({ title }) {
   return (
-    <h3 className="projectTitle col-auto">
-      {title}
-    </h3>
+      <h3 className="projectTitle col-auto">
+        {title}
+      </h3>
   );
 }
 

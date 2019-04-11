@@ -6,7 +6,7 @@ import './styles.scss';
 import ProjectDescription from './components/ProjectDescription';
 
 function ProjectSummary({
-  image, title, description, budget, skills, deadline, onClick
+  image, title, description, budget, skills, deadline, onClick,
 }) {
   return (
     <div>

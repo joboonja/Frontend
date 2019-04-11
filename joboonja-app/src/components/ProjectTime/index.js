@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProjectSummaryTime from './components/ProjectSummaryTime';
@@ -12,15 +13,21 @@ function ProjectTime({ time, showStyle }) {
     ) / (1000 * 60),
   );
   const ended = days < 0 || hours < 0 || minutes < 0;
+  const isProjectCard = showStyle === 'projectCard';
   const daysStr = convertEnglishNumbersToPersian(days.toString());
   const hoursStr = convertEnglishNumbersToPersian(hours.toString());
   const minutesStr = convertEnglishNumbersToPersian(minutes.toString());
   return (
     <div>
-      { showStyle === 'projectSummary'
-        ? <ProjectSummaryTime days={daysStr} hours={hoursStr} minutes={minutesStr} ended={ended} />
-        : <div /> }
-
+      {
+        <ProjectSummaryTime
+          days={daysStr}
+          hours={hoursStr}
+          minutes={minutesStr}
+          ended={ended}
+          isProjectCard={isProjectCard}
+        />
+     }
     </div>
   );
 }
