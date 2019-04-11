@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
@@ -11,7 +12,7 @@ function IconItem({ textTitle, text, type }) {
         <div className="col-auto projectIcon">
           <i className={type === 'deadline' ? 'flaticon-deadline projectIcon'
             : type === 'money' ? 'flaticon-money-bag projectIcon money'
-              : ''}
+              : type === 'deadlineReached' ? 'flaticon-deadline projectIcon deadlinePassed' : ''}
           />
         </div>
         <ProjectIconTitle text={textTitle} type={type} />

@@ -17,6 +17,10 @@ function ProjectSummaryTime({
     <IconItem type="deadline" text={`${days} روز و ${hours} ساعت و ${minutes} دقیقه`} textTitle="زمان باقی‌مانده:" />
   );
 
+  const projectCardDeadlinePassed = (
+    <IconItem type="deadlineReached" text="مهلت تمام شده" textTitle="" />
+  );
+
   const endedTime = (
     <span className="projectSummaryTimeEnded">
       مهلت تمام شده
@@ -24,7 +28,7 @@ function ProjectSummaryTime({
   );
   return (
     <div>
-      {isProjectCard ? projectCardDeadline
+      {isProjectCard ? ended ? projectCardDeadlinePassed : projectCardDeadline
         : ended
           ? endedTime
           : remainedTime}
