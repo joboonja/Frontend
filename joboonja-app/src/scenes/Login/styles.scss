@@ -37,25 +37,31 @@
   align-items: center;
 }
 .loginInput {
-  border: 2px solid rgba(143, 143, 143, 0.27);
-  border-radius: 4px;
-  height: 40px;
-  transition: 1s;
-  font-size: 10pt;
   width: 80%;
-  margin-top: 2.5vh;
-  padding: 8px;
-}
-.loginInput:focus {
-  border: 2px solid rgba(5, 124, 132, 0.79);;
-  outline: none;
-  transition: 0.5s
-}
-.loginInput:focus::placeholder {
-  color: #297682;
 }
 
 .loginButtonContainer {
-  margin-top: 5vh;
+  margin-top: 4vh;
+  margin-bottom: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
+.loginFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginLink {
+  margin-top: 10px;
+  transition: 0.5s;
+  font-size: 12pt;
+}
+.loginLink:hover {
+  font-size: 12.5pt;
+  text-decoration: none;
+}

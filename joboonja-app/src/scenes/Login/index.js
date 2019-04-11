@@ -1,12 +1,18 @@
 import React from 'react';
-import SlideShow from '../../components/SlideShow';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Card from '../../components/Card';
 import './styles.scss';
-import { TextField } from '@material-ui/core';
 import AddButton from '../../components/Buttons/AddButton';
+import SampleInput from '../../components/Inputs/SimpleInput';
+import { usernameChanged, passwordChanged } from './services/actions';
 
 class Login extends React.PureComponent {
   render() {
+    const {
+      username, password, onPasswordChange, onUserChange, valid, userError, passwordError,
+    } = this.props;
     return (
       <div className="main">
         {/* <SlideShow /> */}
@@ -16,20 +22,18 @@ class Login extends React.PureComponent {
               <h4>ورود به جاب‌اونجا</h4>
             </div>
             <form noValidate autoComplete="off" className="loginForm">
-              <input type="input" className="loginInput" placeholder="نام کاربری" />
-              <input type="password" className="loginInput" placeholder="رمز عبور" />
+              <SampleInput className="loginInput" placeholder="نام کاربری" value={username} onChange={onUserChange} error={userError} />
+              <SampleInput className="loginInput" placeholder="رمز عبور" type="password" error={passwordError} value={password} onChange={onPasswordChange} />
             </form>
 
             <div className="row loginButtonContainer">
-              <div className="col-md-4" />
-              <div className="col-md-4">
-                <AddButton>
-                ورود
-                </AddButton>
-              </div>
-              <div className="col-md-4" />
+              <AddButton width="100px" disabled={!valid}>ورود</AddButton>
             </div>
 
+            <div className="loginFooter">
+              <NavLink className="loginLink"> رمز عبور را فراموش کرده‌ام.</NavLink>
+              <NavLink className="loginLink" to="/signup"> ثبت‌نام</NavLink>
+            </div>
           </Card>
         </div>
       </div>
@@ -37,4 +41,27 @@ class Login extends React.PureComponent {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  onUserChange: PropTypes.func.isRequired,
+  onPasswordChange: PropTypes.func.isRequired,
+  userError: PropTypes.string.isRequired,
+  passwordError: PropTypes.string.isRequired,
+  valid: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = store => ({
+  username: store.Login.username,
+  password: store.Login.password,
+  userError: store.Login.userError,
+  passwordError: store.Login.passwordError,
+  valid: store.Login.valid,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onUserChange: (e) => { dispatch(usernameChanged(e.target.value)); },
+  onPasswordChange: (e) => { dispatch(passwordChanged(e.target.value)); },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
