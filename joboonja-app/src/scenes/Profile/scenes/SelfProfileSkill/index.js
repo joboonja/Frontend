@@ -23,7 +23,9 @@ class SelfProfileSkill extends React.Component {
     return (
       <div className="container">
         <AddSkill />
-        {skillRow}
+        <div style={{ textAlign: 'left' }}>
+          {skillRow}
+        </div>
       </div>
     );
   }

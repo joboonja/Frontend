@@ -32,7 +32,9 @@ class OthersProfileSkill extends React.Component {
     ));
     return (
       <div className="container">
-        {skillRow}
+        <div style={{ textAlign: 'left' }}>
+          {skillRow}
+        </div>
       </div>
     );
   }
