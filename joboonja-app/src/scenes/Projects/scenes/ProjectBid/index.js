@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Navbar from '../../../../components/Navbar';
 import { requestForProject } from '../../services/actions/getProjectActions';
-import { addBid } from '../../services/actions/addBidActions';
 import PageLoading from '../../../../components/Loadings/PageLoading';
 import PageError from '../../../../components/Errors/PageError';
 import './styles.scss';

@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import HomeHeader from './components/HomeHeader';
 import Profiles from './components/Profiles';
 import Projects from './components/Projects';
