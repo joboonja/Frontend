@@ -1,9 +1,8 @@
 /* eslint-disable no-nested-ternary */
-import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from '../../../../components/Navbar';
-import Footer from '../../../../components/Footer';
 import { requestForProject } from '../../services/actions/getProjectActions';
 import PageLoading from '../../../../components/Loadings/PageLoading';
 import PageError from '../../../../components/Errors/PageError';
@@ -11,7 +10,7 @@ import './styles.scss';
 import ProjectCard from '../../components/ProjectInfoBox/components/ProjectCard';
 import '../../../Profile/components/UserProfileShow/components/ProfileHeader/styles.scss';
 import SkillsCard from '../../components/ProjectInfoBox/components/SkillsCard';
-import BidCard from "../../components/ProjectInfoBox/components/BidCard";
+import BidCard from '../../components/ProjectInfoBox/components/BidCard';
 
 
 class ProjectBid extends React.Component {

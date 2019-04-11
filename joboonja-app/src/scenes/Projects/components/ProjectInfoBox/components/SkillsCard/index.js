@@ -4,6 +4,7 @@ import '../../../../../../components/SkillItem/styles.scss';
 import './styles.scss';
 import '../../../assets/icons/font/flaticon.css';
 import ProjectSkillItem from './components/SkillItem';
+import SkillItem from '../../../../../../components/SkillItem';
 
 function SkillsCard({ skills }) {
   return (
@@ -14,7 +15,10 @@ function SkillsCard({ skills }) {
         </h5>
       </div>
       <div className="skillItems">
-        <ProjectSkillItem point={15} name="C++" />
+        {Object.values(skills).map(
+          item => (<ProjectSkillItem point={item.points} name={item.name} />),
+        )
+        }
       </div>
     </div>
   );
@@ -30,8 +34,5 @@ SkillsCard.propTypes = {
 SkillsCard.defaultProps = {
   skills: [],
 };
-const mapStateToProps = store => ({
-  skills: store.Project.getProjectReducer.project.skills,
-});
 
 export default SkillsCard;

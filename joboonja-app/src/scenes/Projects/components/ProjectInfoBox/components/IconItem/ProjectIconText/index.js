@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import './styles.scss';
 import '../styles.scss';
@@ -16,6 +17,7 @@ function ProjectIconText({ text, type }) {
 
 ProjectIconText.propTypes = {
   text: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default ProjectIconText;
