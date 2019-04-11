@@ -6,7 +6,7 @@ import convertEnglishNumbersToPersian from '../../services/convertEnglishNumbers
 import IconItem from '../IconItem';
 import BidCard from '../../scenes/Projects/components/ProjectInfoBox/components/BidCard';
 
-function ProjectTime({ time, showStyle }) {
+function ProjectTime({ time, showStyle, id }) {
   const days = Math.floor((time - Date.now()) / (36e5 * 24));
   const hours = Math.floor(((time - days * (36e5 * 24)) - Date.now()) / (36e5));
   const minutes = Math.floor(
@@ -24,7 +24,7 @@ function ProjectTime({ time, showStyle }) {
         showStyle === 'winner' ? (ended ? <IconItem type="winner" text="تعیین نشده" textTitle="برنده: " /> : '')
           : showStyle === 'projectCard' ? (ended ? <IconItem type="deadlineReached" text="مهلت تمام شده" textTitle="" />
             : <IconItem type="deadline" text={`${daysStr} روز و ${hoursStr} ساعت و ${minutesStr} دقیقه`} textTitle="زمان باقی‌مانده:" />)
-            : showStyle === 'bidCard' ? <BidCard ended={ended} />
+            : showStyle === 'bidCard' ? <BidCard ended={ended} id={id} />
               : (
                 <ProjectSummaryTime
                   days={daysStr}
@@ -41,6 +41,11 @@ function ProjectTime({ time, showStyle }) {
 ProjectTime.propTypes = {
   time: PropTypes.number.isRequired,
   showStyle: PropTypes.oneOf(['projectSummary']).isRequired,
+  id: PropTypes.string,
+};
+
+ProjectTime.defaultProps = {
+  id: '',
 };
 
 export default ProjectTime;

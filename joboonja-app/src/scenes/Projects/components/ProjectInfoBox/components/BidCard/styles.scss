@@ -20,6 +20,12 @@
   padding-top: 24px;
 }
 
+.bid::-webkit-inner-spin-button,
+.bid::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .bid input {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;

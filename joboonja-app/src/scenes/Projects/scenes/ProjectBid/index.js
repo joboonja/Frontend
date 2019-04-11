@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Navbar from '../../../../components/Navbar';
 import { requestForProject } from '../../services/actions/getProjectActions';
+import { addBid } from '../../services/actions/addBidActions';
 import PageLoading from '../../../../components/Loadings/PageLoading';
 import PageError from '../../../../components/Errors/PageError';
 import './styles.scss';
 import ProjectCard from '../../components/ProjectInfoBox/components/ProjectCard';
 import '../../../Profile/components/UserProfileShow/components/ProfileHeader/styles.scss';
 import SkillsCard from '../../components/ProjectInfoBox/components/SkillsCard';
-import BidCard from '../../components/ProjectInfoBox/components/BidCard';
 import ProjectTime from '../../../../components/ProjectTime';
 
 
@@ -38,7 +38,7 @@ class ProjectBid extends React.Component {
           <ProjectCard project={project} />
         </div>
         <SkillsCard skills={project.skills} />
-        <ProjectTime showStyle="bidCard" time={project.deadline} />
+        <ProjectTime showStyle="bidCard" time={project.deadline} id={id} />
       </div>
     );
   }

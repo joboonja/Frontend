@@ -41,8 +41,6 @@ AddSkill.propTypes = {
   skill: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
 };
-AddSkill.defaultProps = {
-};
 
 const mapStateToProps = store => ({
   skill: store.Profile.addSkillReducer.skill,
