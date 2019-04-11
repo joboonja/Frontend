@@ -9,7 +9,8 @@ function ProjectIconText({ text, type }) {
     <div className={type === 'deadline'
       ? 'col-auto projectInfoText' : type === 'money'
         ? 'col-auto projectInfoText money' : type === 'deadlineReached'
-          ? 'col-auto projectInfoText deadlinePassed' : 'col-auto projectInfoTitle'}
+          ? 'col-auto projectInfoText deadlinePassed' : type === 'winner'
+            ? 'col-auto projectInfoText winner' : 'col-auto projectInfoText'}
     >
       {text}
     </div>
