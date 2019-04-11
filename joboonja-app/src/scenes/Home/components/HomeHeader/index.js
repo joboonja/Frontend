@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.scss';
 import SearchBar from './components/SearchBar';
 
+
 function HomeHeader() {
   return (
     <div>
@@ -22,4 +23,5 @@ function HomeHeader() {
     </div>
   );
 }
+
 export default HomeHeader;
