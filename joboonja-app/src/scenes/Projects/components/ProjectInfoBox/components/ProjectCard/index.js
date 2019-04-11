@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
@@ -6,7 +7,8 @@ import ProjectTitle from './ProjectTitle';
 import ProjectDetailedDescription from './ProjectDetailedDescription';
 import '../../../assets/icons/font/flaticon.css';
 import convertEnglishNumbersToPersian from '../../../../../../services/convertEnglishNumbersToPersian';
-import IconItem from '../IconItem';
+import IconItem from '../../../../../../components/IconItem';
+import ProjectTime from '../../../../../../components/ProjectTime';
 
 function ProjectCard({ project }) {
   const budgetNum = `${convertEnglishNumbersToPersian(project.budget.toString())} تومان`;
@@ -15,7 +17,7 @@ function ProjectCard({ project }) {
       <ProjectImg imgUrl={project.imageURL} />
       <div>
         <ProjectTitle title={project.title} />
-        <IconItem type="deadline" text="۱۷ دقیقه و ۲۵ ثانیه" textTitle="زمان باقی‌مانده:" />
+        <ProjectTime showStyle="projectCard" time={project.deadline} />
         <IconItem type="money" text={budgetNum} textTitle="بودجه:" />
         <ProjectDetailedDescription description={project.description} />
       </div>
@@ -29,6 +31,7 @@ ProjectCard.propTypes = {
     description: PropTypes.string,
     imageURL: PropTypes.string,
     budget: PropTypes.number,
+    deadline: PropTypes.number,
     skills: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       points: PropTypes.number,

@@ -4,7 +4,6 @@ import '../../../../../../components/SkillItem/styles.scss';
 import './styles.scss';
 import '../../../assets/icons/font/flaticon.css';
 import ProjectSkillItem from './components/SkillItem';
-import SkillItem from '../../../../../../components/SkillItem';
 
 function SkillsCard({ skills }) {
   return (
