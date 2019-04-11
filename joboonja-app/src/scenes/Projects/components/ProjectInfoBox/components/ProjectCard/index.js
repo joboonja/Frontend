@@ -33,6 +33,7 @@ ProjectCard.propTypes = {
     imageURL: PropTypes.string,
     budget: PropTypes.number,
     deadline: PropTypes.number,
+    hasBidOrNot: PropTypes.bool,
     skills: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       points: PropTypes.number,

@@ -1,8 +1,16 @@
 import { handleActions } from 'redux-actions';
 import { projectReqError, projectReqSuccess, projectReqSent } from '../actions/getProjectActions';
+import { addBidReqSuccess } from '../actions/addBidActions';
 
 const getProjectReducer = handleActions(
   {
+    [addBidReqSuccess]: (state) => {
+      const newProject = state.project;
+      newProject.hasBidOrNot = true;
+      return ({
+        ...state, project: newProject,
+      });
+    },
     [projectReqSent]: state => ({
       ...state, loading: true,
     }),
@@ -20,6 +28,7 @@ const getProjectReducer = handleActions(
       imageURL: '',
       budget: '',
       skills: [],
+      hasBidOrNot: false,
     },
     loading: false,
     error: '',

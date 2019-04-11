@@ -13,6 +13,7 @@ import Toast from './components/Toast';
 import Home from './scenes/Home';
 import Login from './scenes/Login';
 import Footer from './components/Footer';
+import Register from './scenes/Register';
 
 const store = createStore(JoboonjaApp, applyMiddleware(thunk));
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/profile" component={ProfileRoute} />
             <Route path="/projects" component={ProjectRoute} />
             <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
             <Route path="/" exact component={Home} />
             <Route path="/" component={Footer} />
           </div>

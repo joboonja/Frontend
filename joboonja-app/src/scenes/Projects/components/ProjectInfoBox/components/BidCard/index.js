@@ -9,18 +9,21 @@ import AddButton from '../../../../../../components/Buttons/AddButton';
 import { addBid, offerValueChange } from '../../../../services/actions/addBidActions';
 
 function BidCard({
-  ended, id, loading, amount, onOfferValueChange, valid,
+  ended, hasBid, id, loading, amount, onOfferValueChange, valid, addBidForProject,
 }) {
-  const endedBid = (
+  const cannotBid = (
     <div className="iconItem">
       <div className="row">
-        <div className="alreadyBidIcon deadlinePassed col-auto">
-          <IconItem type="cannotBid" text="" textTitle="" />
+        <div className={ended ? 'alreadyBidIcon deadlinePassed col-auto' : 'alreadyBidIcon col-auto'}>
+          <IconItem type={ended ? 'cannotBid' : 'alreadyHas'} text="" textTitle="" />
         </div>
-        <div className="alreadyBidText deadlinePassed col-auto">
-مهلت ارسال پیشنهاد برای این پروژه به پایان رسیده
-          است!
-        </div>
+        {ended ? (
+          <div className="alreadyBidText deadlinePassed col-auto">
+              مهلت ارسال پیشنهاد برای این پروژه به پایان رسیده
+              است!
+          </div>
+        ) : <div className="alreadyBidText col-auto">شما قبلا پیشنهاد خود را ثبت کرده‌اید.</div>
+          }
       </div>
     </div>
   );
@@ -35,10 +38,10 @@ function BidCard({
       <form className="row">
         <div className="col-auto">
           <input
+            type="number"
             className="bid"
-            type="tel"
             min={0}
-            maxLength={15}
+            // onKeyPress="if(this.value.length==15) return false;"
             placeholder="پیشنهاد خود را وارد کنید"
             id="bidForm"
             onChange={e => onOfferValueChange(e.target.value)}
@@ -50,9 +53,7 @@ function BidCard({
           <div className="sendButton">
             <AddButton
               onClick={() => {
-                if (amount) {
-                  addBid(id, amount);
-                }
+                addBidForProject(id, amount);
               }}
               loading={loading}
               disabled={!valid}
@@ -60,16 +61,15 @@ function BidCard({
                     ارسال
             </AddButton>
           </div>
-
         </div>
-
       </form>
     </div>
   );
+  console.log(loading);
   return (
     <div>
       <div className="container bid">
-        {ended ? endedBid : stillCanBid
+        {ended || hasBid ? cannotBid : stillCanBid
             }
       </div>
     </div>
@@ -80,13 +80,16 @@ BidCard.propTypes = {
   id: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
   ended: PropTypes.bool,
+  hasBid: PropTypes.bool,
   onOfferValueChange: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   valid: PropTypes.bool.isRequired,
+  addBidForProject: PropTypes.func.isRequired,
 };
 
 BidCard.defaultProps = {
   ended: false,
+  hasBid: false,
 };
 
 
@@ -94,10 +97,11 @@ const mapStateToProps = store => ({
   loading: store.Project.addBidReducer.loading,
   amount: store.Project.addBidReducer.amount,
   valid: store.Project.addBidReducer.valid,
+  hasBid: store.Project.getProjectReducer.project.hasBidOrNot,
 });
 
 const mapDispatchToProps = dispatch => ({
-  addBid: (id, amount) => { dispatch(addBid(id, amount)); },
+  addBidForProject: (id, amount) => { dispatch(addBid(id, amount)); },
   onOfferValueChange: (amount) => { dispatch(offerValueChange(amount)); },
 });
 

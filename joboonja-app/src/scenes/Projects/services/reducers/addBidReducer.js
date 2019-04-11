@@ -7,13 +7,12 @@ import {
   addBidReqSuccess, addBidReqSent, addBidReqError, offerValueChange,
 } from '../actions/addBidActions';
 
-
 const addBidReducer = handleActions(
   {
     [addBidReqSent]: state => ({
       ...state, loading: true, error: '', success: false, amount: '',
     }),
-    [addBidReqError]: (state, { payload: { error } }) => {
+    [addBidReqError]: (state, { payload: error }) => {
       toast.error(<ToastMsg msg={errors.CAN_NOT_ADD_BID} reason={error.toString()} />);
       return ({
         ...state, error: error.toString(), loading: false,
