@@ -4,7 +4,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../../../../components/Navbar';
 import UserProfileShow from '../../components/UserProfileShow';
-import Footer from '../../../../components/Footer';
 import OthersProfileSkill from '../OthersProfileSkill';
 import SelfProfileSkill from '../SelfProfileSkill';
 import { requestForProfile } from '../../services/actions/getProfileActions';
@@ -58,7 +57,6 @@ class Profile extends React.Component {
             : error ? <PageError errorMsg={error} />
               : this.getProfileShow()}
         </div>
-        <Footer />
       </div>
     );
   }

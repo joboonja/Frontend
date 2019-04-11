@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 function Card({
-  children, style, hoverable, onClick,
+  children, style, hoverable, onClick, className,
 }) {
   let cardClass;
   if (hoverable && onClick) {
@@ -12,6 +12,7 @@ function Card({
   } else {
     cardClass = hoverable ? 'cardContainer cardContainerHoverable' : 'cardContainer';
   }
+  cardClass += ` ${className}`;
   return (
     <div className={cardClass} style={style} onClick={onClick}>
       {children}
@@ -24,12 +25,14 @@ Card.propTypes = {
   style: PropTypes.object,
   hoverable: PropTypes.bool,
   onClick: PropTypes.func,
+  className: PropTypes.string,
 };
 Card.defaultProps = {
   children: '',
   style: {},
   hoverable: false,
   onClick: null,
+  className: '',
 };
 
 export default Card;
