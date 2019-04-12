@@ -1,15 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import { connect } from 'react-redux';
 import AddButton from '../../components/Buttons/AddButton';
 import SampleInput from '../../components/Inputs/SimpleInput';
 import SlideShow from './componenets/SlideShow';
 import RegisterTitle from './componenets/RegisterTitle';
+import RegisterCheckBox from './componenets/RegisterCheckBox';
+import
+{
+  regUsernameChanged, regPasswordChanged, regRepeatedChanged,
+  regFirstNameChanged, regLastNameChanged, regImgLinkChanged, regJobChanged,
+} from './services/actions';
 
 class Register extends React.PureComponent {
   render() {
     const {
-      username, password, onPasswordChange, onUserChange, valid, userError, passwordError,
+      username, password, repeatedPassword, firstName, lastName, imgLink, job,
+      onUsernameChange, onPasswordChange, onRepeatedChange, onFirstNameChange, onLastNameChange,
+      onImgLinkChange, onJobChange, valid, userError, passwordError, repeatedError, notEmptyError,
     } = this.props;
     return (
       <body className="register-body">
@@ -40,33 +49,21 @@ class Register extends React.PureComponent {
                 </div>
                 <div className="custom-file file-selector form-row">
                   <div className=" form-row">
-
                     <div className="col-6">
                       <input type="text" className="form-control" placeholder="لینک فایل تصویر پروفایل" />
                     </div>
-                    <div className="col-6">
-                      <input type="file" className="custom-file-input" id="customFile" />
-                      <label className="custom-file-label ">
-                        <p className="file-selector-label">
-                          آپلود فایل تصویر پروفایل
-                        </p>
-                      </label>
-                    </div>
-
                   </div>
-
-
                 </div>
                 <div className="form-row">
-                  <div className="col-md-6 mb-3">
+                  <div className="col-md-4 mb-3">
                     <label>عنوان شغل</label>
                     <input type="text" className="form-control" placeholder="عنوان شغل" />
                   </div>
-                  <div className="col-md-3 mb-3">
+                  <div className="col-md-4 mb-3">
                     <label>رمز عبور</label>
                     <input type="password" className="form-control" placeholder="رمز عبور" />
                   </div>
-                  <div className="col-md-3 mb-3">
+                  <div className="col-md-4 mb-3">
                     <label> تکرار رمز عبور</label>
                     <input
                       type="password"
@@ -83,16 +80,7 @@ class Register extends React.PureComponent {
                   <textarea className="form-control register-text-area" />
                 </div>
                 <div className="row register-final-row">
-                  <div className="col-lg-5 col-md-8">
-                    <div className="form-group">
-                      <div className="form-check">
-                        <input type="checkbox" />
-                        <label className="form-check-label">
-                          تمامی شرایط و قوانین جاب‌اونجا را می‌پذیرم.
-                        </label>
-                      </div>
-                    </div>
-                  </div>
+                  <RegisterCheckBox />
                   <div className="col-lg-7 col-md-4">
                     <button className="register-btn btn btn-primary" type="submit">ثبت‌نام</button>
                   </div>
@@ -106,4 +94,51 @@ class Register extends React.PureComponent {
   }
 }
 
-export default Register;
+Register.propTypes = {
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  repeatedPassword: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  imgLink: PropTypes.string.isRequired,
+  job: PropTypes.string.isRequired,
+  onUsernameChange: PropTypes.func.isRequired,
+  onPasswordChange: PropTypes.func.isRequired,
+  onRepeatedChange: PropTypes.func.isRequired,
+  onFirstNameChange: PropTypes.func.isRequired,
+  onLastNameChange: PropTypes.func.isRequired,
+  onImgLinkChange: PropTypes.func.isRequired,
+  onJobChange: PropTypes.func.isRequired,
+  valid: PropTypes.bool.isRequired,
+  userError: PropTypes.string.isRequired,
+  passwordError: PropTypes.string.isRequired,
+  repeatedError: PropTypes.string.isRequired,
+  notEmptyError: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = store => ({
+  username: store.Register.username,
+  password: store.Register.password,
+  repeatedPassword: store.Register.repeated,
+  firstName: store.Register.firstName,
+  lastName: store.Register.lastName,
+  imgLink: store.Register.imgLink,
+  job: store.Register.job,
+  userError: store.Register.userError,
+  passwordError: store.Register.passwordError,
+  repeatedError: store.Register.repeatedError,
+  notEmptyError: store.Register.notEmptyError,
+  valid: store.Register.valid,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onUsernameChange: (e) => { dispatch(regUsernameChanged(e.target.value)); },
+  onPasswordChange: (e) => { dispatch(regPasswordChanged(e.target.value)); },
+  onRepeatedChange: (e) => { dispatch(regRepeatedChanged(e.target.value)); },
+  onFirstNameChange: (e) => { dispatch(regFirstNameChanged(e.target.value)); },
+  onLastNameChange: (e) => { dispatch(regLastNameChanged(e.target.value)); },
+  onImgLinkChange: (e) => { dispatch(regImgLinkChanged(e.target.value)); },
+  onJobChange: (e) => { dispatch(regJobChanged(e.target.value)); },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
