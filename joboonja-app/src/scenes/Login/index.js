@@ -32,7 +32,7 @@ class Login extends React.PureComponent {
 
             <div className="loginFooter">
               <NavLink className="loginLink"> رمز عبور را فراموش کرده‌ام.</NavLink>
-              <NavLink className="loginLink" to="/signup"> ثبت‌نام</NavLink>
+              <NavLink className="loginLink" to="/register"> ثبت‌نام</NavLink>
             </div>
           </Card>
         </div>
