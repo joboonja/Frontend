@@ -12,6 +12,7 @@ import
   regUsernameChanged, regPasswordChanged, regRepeatedChanged, regFirstNameChanged,
   regLastNameChanged, regImgLinkChanged, regJobChanged, regCheckBoxChanged,
 } from './services/actions';
+import RegisterField from './componenets/RegisterField';
 
 class Register extends React.PureComponent {
   render() {
@@ -30,14 +31,8 @@ class Register extends React.PureComponent {
               <RegisterTitle />
               <form className="needs-validation" noValidate>
                 <div className="form-row">
-                  <div className="col-md-4 mb-3">
-                    <label>نام</label>
-                    <input type="text" className="form-control" id="name" placeholder="نام" />
-                  </div>
-                  <div className="col-md-4 mb-3">
-                    <label>نام خانوادگی</label>
-                    <input type="text" className="form-control" id="family-name" placeholder="نام خانوادگی" />
-                  </div>
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام" placeholder="نام" value={firstName} onChange={onFirstNameChange} />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام خانوادگی" placeholder="نام خانوادگی" value={lastName} onChange={onLastNameChange} />
                   <div className="col-md-4 mb-3">
                     <label>نام‌کاربری</label>
                     <div className="input-group">
@@ -50,16 +45,13 @@ class Register extends React.PureComponent {
                 </div>
                 <div className="custom-file file-selector form-row">
                   <div className=" form-row">
-                    <div className="col-6">
+                    <div className="col-12">
                       <input type="text" className="form-control" placeholder="لینک فایل تصویر پروفایل" />
                     </div>
                   </div>
                 </div>
                 <div className="form-row">
-                  <div className="col-md-4 mb-3">
-                    <label>عنوان شغل</label>
-                    <input type="text" className="form-control" placeholder="عنوان شغل" />
-                  </div>
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="عنوان شغل" placeholder="عنوان شغل" value={job} onChange={onJobChange} />
                   <div className="col-md-4 mb-3">
                     <label>رمز عبور</label>
                     <input type="password" className="form-control" placeholder="رمز عبور" />

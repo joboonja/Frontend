@@ -51,17 +51,10 @@ const Register = handleActions({
       notEmptyError,
     });
   },
-  [regImgLinkChanged]: (state, { payload: imgLink }) => {
-    const notEmptyValid = imgLink !== '';
-    const notEmptyError = notEmptyValid ? '' : errors.FIELD_EMPTY;
-    return ({
-      ...state,
-      imgLink,
-      notEmptyValid,
-      valid: state.passwordValid && notEmptyValid && state.repeatedValid && state.userValid,
-      notEmptyError,
-    });
-  },
+  [regImgLinkChanged]: (state, { payload: imgLink }) => ({
+    ...state,
+    imgLink,
+  }),
   [regUsernameChanged]: (state, { payload: username }) => {
     const userValid = username !== '';
     const userError = userValid ? '' : errors.USER_EMPTY;
