@@ -45,8 +45,8 @@ class Register extends React.PureComponent {
                 </div>
                 <div className="form-row">
                   <RegisterField colClassName="col-md-4 mb-3" labelText="عنوان شغل*" placeholder="عنوان شغل" value={job} onChange={onJobChange} />
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="رمز عبور*" placeholder="رمز عبور" value={password} onChange={onPasswordChange} error={passwordError} />
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="تکرار رمز عبور*" placeholder="تکرار رمز عبور" value={repeatedPassword} onChange={onRepeatedChange} error={repeatedError} />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="رمز عبور*" placeholder="رمز عبور" value={password} onChange={onPasswordChange} error={passwordError} type="password" />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="تکرار رمز عبور*" placeholder="تکرار رمز عبور" value={repeatedPassword} onChange={onRepeatedChange} error={repeatedError} type="password" />
                 </div>
                 <div className="input-group ">
                   <div className="input-group-prepend">

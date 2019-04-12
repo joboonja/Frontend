@@ -21,14 +21,14 @@ function RegisterField({
           onChange={onChange}
           value={value}
         />
-        {error
-          ? (
-            <div>
-              <p className="sampleInputError">{error}</p>
-            </div>
-          )
-          : null}
       </div>
+      {error
+        ? (
+          <div>
+            <p className="sampleInputError">{error}</p>
+          </div>
+        )
+        : null}
     </div>
   );
 }

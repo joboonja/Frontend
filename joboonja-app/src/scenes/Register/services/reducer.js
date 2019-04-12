@@ -72,6 +72,8 @@ const Register = handleActions({
   },
   [regPasswordChanged]: (state, { payload: password }) => {
     let passwordValid = true;
+    let repeatedValid = true;
+    let repeatedError = '';
     let passwordError = '';
     if (password === '') {
       passwordValid = false;
@@ -79,13 +81,19 @@ const Register = handleActions({
     } else if (password.length < 6) {
       passwordValid = false;
       passwordError = errors.PASSWORD_SIX_CHAR;
+    } else if (password !== state.repeated) {
+      repeatedValid = false;
+      repeatedError = errors.PASS_MUST_MATCH;
     }
     return ({
       ...state,
       password,
       passwordError,
       passwordValid,
-      valid: passwordValid && state.userValid && state.checkBoxValid && state.notEmptyValid,
+      repeatedValid,
+      repeatedError,
+      valid: passwordValid && state.userValid && state.checkBoxValid
+          && state.notEmptyValid && repeatedValid,
     });
   },
   [regRepeatedChanged]: (state, { payload: repeated }) => {
