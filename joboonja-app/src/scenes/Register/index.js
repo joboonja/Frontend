@@ -56,7 +56,7 @@ class Register extends React.PureComponent {
                   <textarea className="form-control register-text-area" />
                 </div>
                 <div className="row register-final-row">
-                  <RegisterCheckBox />
+                  <RegisterCheckBox onClick={onCheckBoxChange} />
                   <div className="col-lg-7 col-md-4">
                     <AddButton disabled={!valid}>ثبت‌نام</AddButton>
                   </div>
