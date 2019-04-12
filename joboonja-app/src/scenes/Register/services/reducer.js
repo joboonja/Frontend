@@ -81,7 +81,8 @@ const Register = handleActions({
     } else if (password.length < 6) {
       passwordValid = false;
       passwordError = errors.PASSWORD_SIX_CHAR;
-    } else if (password !== state.repeated) {
+    }
+    if (password !== state.repeated) {
       repeatedValid = false;
       repeatedError = errors.PASS_MUST_MATCH;
     }
