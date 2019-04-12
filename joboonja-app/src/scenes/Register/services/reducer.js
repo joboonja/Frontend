@@ -2,6 +2,7 @@ import { handleActions } from 'redux-actions';
 import {
   regUsernameChanged, regPasswordChanged, regRepeatedChanged,
   regFirstNameChanged, regLastNameChanged, regImgLinkChanged, regJobChanged,
+  regDescriptionChanged, regCheckBoxChanged,
 } from './actions';
 import { errors } from '../../../services/toast/config';
 
@@ -97,6 +98,20 @@ const Register = handleActions({
       valid: repeatedValid && state.passwordValid && state.userValid,
     });
   },
+  [regDescriptionChanged]: (state, { payload: description }) => ({
+    ...state,
+    description,
+  }),
+  [regCheckBoxChanged]: (state) => {
+    const checkValid = !state.checkBoxValid;
+    return ({
+      ...state,
+      checkBoxValid: checkValid,
+      valid:
+          (state.passwordValid && state.notEmptyValid
+              && state.repeatedValid && state.userValid && checkValid),
+    });
+  },
 },
 {
   username: '',
@@ -106,11 +121,13 @@ const Register = handleActions({
   lastName: '',
   imgLink: '',
   job: '',
+  description: '',
   valid: false,
   notEmptyValid: false,
   userValid: false,
   passwordValid: false,
   repeatedValid: false,
+  checkBoxValid: false,
   passwordError: errors.PASSWORD_EMPTY,
   userError: errors.USER_EMPTY,
   repeatedError: errors.PASS_MUST_MATCH,

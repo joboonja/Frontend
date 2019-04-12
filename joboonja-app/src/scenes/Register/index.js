@@ -9,8 +9,8 @@ import RegisterTitle from './componenets/RegisterTitle';
 import RegisterCheckBox from './componenets/RegisterCheckBox';
 import
 {
-  regUsernameChanged, regPasswordChanged, regRepeatedChanged,
-  regFirstNameChanged, regLastNameChanged, regImgLinkChanged, regJobChanged,
+  regUsernameChanged, regPasswordChanged, regRepeatedChanged, regFirstNameChanged,
+  regLastNameChanged, regImgLinkChanged, regJobChanged, regCheckBoxChanged,
 } from './services/actions';
 
 class Register extends React.PureComponent {
@@ -18,7 +18,8 @@ class Register extends React.PureComponent {
     const {
       username, password, repeatedPassword, firstName, lastName, imgLink, job,
       onUsernameChange, onPasswordChange, onRepeatedChange, onFirstNameChange, onLastNameChange,
-      onImgLinkChange, onJobChange, valid, userError, passwordError, repeatedError, notEmptyError,
+      onCheckBoxChange, onImgLinkChange, onJobChange, valid, userError, passwordError, repeatedError,
+      notEmptyError,
     } = this.props;
     return (
       <body className="register-body">
@@ -109,6 +110,7 @@ Register.propTypes = {
   onLastNameChange: PropTypes.func.isRequired,
   onImgLinkChange: PropTypes.func.isRequired,
   onJobChange: PropTypes.func.isRequired,
+  onCheckBoxChange: PropTypes.func.isRequired,
   valid: PropTypes.bool.isRequired,
   userError: PropTypes.string.isRequired,
   passwordError: PropTypes.string.isRequired,
@@ -139,6 +141,7 @@ const mapDispatchToProps = dispatch => ({
   onLastNameChange: (e) => { dispatch(regLastNameChanged(e.target.value)); },
   onImgLinkChange: (e) => { dispatch(regImgLinkChanged(e.target.value)); },
   onJobChange: (e) => { dispatch(regJobChanged(e.target.value)); },
+  onCheckBoxChange: (e) => { dispatch(regCheckBoxChanged(e.target.value)); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);
