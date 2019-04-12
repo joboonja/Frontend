@@ -13,6 +13,7 @@ import
   regLastNameChanged, regImgLinkChanged, regJobChanged, regCheckBoxChanged,
 } from './services/actions';
 import RegisterField from './componenets/RegisterField';
+import NotEmptyError from './componenets/NotEmptyError';
 
 class Register extends React.PureComponent {
   render() {
@@ -30,41 +31,22 @@ class Register extends React.PureComponent {
             <div className="register-card-container container">
               <RegisterTitle />
               <form className="needs-validation" noValidate>
+                {notEmptyError ? <NotEmptyError /> : <div />}
                 <div className="form-row">
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام" placeholder="نام" value={firstName} onChange={onFirstNameChange} />
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام خانوادگی" placeholder="نام خانوادگی" value={lastName} onChange={onLastNameChange} />
-                  <div className="col-md-4 mb-3">
-                    <label>نام‌کاربری</label>
-                    <div className="input-group">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text username-badge">@</span>
-                      </div>
-                      <input type="text" className="form-control" id="username" placeholder="نام کاربری" />
-                    </div>
-                  </div>
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام*" placeholder="نام" value={firstName} onChange={onFirstNameChange} />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام خانوادگی*" placeholder="نام خانوادگی" value={lastName} onChange={onLastNameChange} />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام‌کاربری*" placeholder="نام‌کاربری" value={username} onChange={onUsernameChange} error={userError} isUsername />
                 </div>
                 <div className="custom-file file-selector form-row">
-                  <div className=" form-row">
-                    <div className="col-12">
-                      <input type="text" className="form-control" placeholder="لینک فایل تصویر پروفایل" />
-                    </div>
+                  <div className="form-row">
+                    <RegisterField colClassName="col-12" labelText="تصویر پروفایل" placeholder="لینک فایل تصویر پروفایل" value={imgLink} onChange={onImgLinkChange} canBeEmpty />
                   </div>
+                  <div className="form-row" />
                 </div>
                 <div className="form-row">
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="عنوان شغل" placeholder="عنوان شغل" value={job} onChange={onJobChange} />
-                  <div className="col-md-4 mb-3">
-                    <label>رمز عبور</label>
-                    <input type="password" className="form-control" placeholder="رمز عبور" />
-                  </div>
-                  <div className="col-md-4 mb-3">
-                    <label> تکرار رمز عبور</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="validationCustom04"
-                      placeholder="تکرار رمز عبور"
-                    />
-                  </div>
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="عنوان شغل*" placeholder="عنوان شغل" value={job} onChange={onJobChange} />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="رمز عبور*" placeholder="رمز عبور" value={password} onChange={onPasswordChange} error={passwordError} />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="تکرار رمز عبور*" placeholder="تکرار رمز عبور" value={repeatedPassword} onChange={onRepeatedChange} error={repeatedError} />
                 </div>
                 <div className="input-group ">
                   <div className="input-group-prepend">

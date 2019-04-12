@@ -8,49 +8,52 @@ import { errors } from '../../../services/toast/config';
 
 const Register = handleActions({
   [regFirstNameChanged]: (state, { payload: firstName }) => {
-    const notEmptyValid = firstName !== '';
-    const notEmptyError = notEmptyValid ? '' : errors.FIELD_EMPTY;
+    const firstNameNotEmptyValid = firstName !== '';
+    const fullValid = firstNameNotEmptyValid
+        && state.lastNameNotEmptyValid
+        && state.jobNotEmptyValid;
     return ({
       ...state,
       firstName,
-      notEmptyValid,
-      valid: state.passwordValid && notEmptyValid && state.repeatedValid && state.userValid,
-      notEmptyError,
+      firstNameNotEmptyValid,
+      notEmptyValid: firstNameNotEmptyValid && state.lastNameNotEmptyValid
+          && state.jobNotEmptyValid,
+      valid: state.passwordValid && fullValid && state.repeatedValid && state.userValid,
     });
   },
   [regLastNameChanged]: (state, { payload: lastName }) => {
-    const notEmptyValid = lastName !== '';
-    const notEmptyError = notEmptyValid ? '' : errors.FIELD_EMPTY;
+    const lastNameNotEmptyValid = lastName !== '';
+    const fullValid = lastNameNotEmptyValid
+            && state.firstNameNotEmptyValid
+            && state.jobNotEmptyValid;
     return ({
       ...state,
       lastName,
-      notEmptyValid,
-      valid: state.passwordValid && notEmptyValid && state.repeatedValid && state.userValid,
-      notEmptyError,
+      lastNameNotEmptyValid,
+      notEmptyValid: lastNameNotEmptyValid && state.firstNameNotEmptyValid
+              && state.jobNotEmptyValid,
+      valid: state.passwordValid && fullValid && state.repeatedValid && state.userValid,
     });
   },
   [regJobChanged]: (state, { payload: job }) => {
-    const notEmptyValid = job !== '';
-    const notEmptyError = notEmptyValid ? '' : errors.FIELD_EMPTY;
+    const jobNotEmptyValid = job !== '';
+    const fullValid = jobNotEmptyValid
+            && state.firstNameNotEmptyValid
+            && state.lastNameNotEmptyValid;
     return ({
       ...state,
       job,
-      notEmptyValid,
-      valid: state.passwordValid && notEmptyValid && state.repeatedValid && state.userValid,
-      notEmptyError,
+      jobNotEmptyValid,
+      notEmptyValid: jobNotEmptyValid && state.firstNameNotEmptyValid
+              && state.lastNameNotEmptyValid,
+      valid: state.passwordValid && fullValid && state.repeatedValid && state.userValid,
     });
   },
-  [regImgLinkChanged]: (state, { payload: imgLink }) => {
-    const notEmptyValid = imgLink !== '';
-    const notEmptyError = notEmptyValid ? '' : errors.FIELD_EMPTY;
-    return ({
-      ...state,
-      imgLink,
-      notEmptyValid,
-      valid: state.passwordValid && notEmptyValid && state.repeatedValid && state.userValid,
-      notEmptyError,
-    });
-  },
+  [regImgLinkChanged]: (state, { payload: imgLink }) => ({
+    ...state,
+    imgLink,
+    valid: state.passwordValid && state.repeatedValid && state.userValid,
+  }),
   [regImgLinkChanged]: (state, { payload: imgLink }) => ({
     ...state,
     imgLink,
@@ -116,6 +119,9 @@ const Register = handleActions({
   job: '',
   description: '',
   valid: false,
+  firstNameNotEmptyValid: false,
+  lastNameNotEmptyValid: false,
+  jobNotEmptyValid: false,
   notEmptyValid: false,
   userValid: false,
   passwordValid: false,

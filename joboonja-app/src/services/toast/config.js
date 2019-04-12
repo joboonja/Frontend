@@ -10,7 +10,7 @@ export const errors = {
   PASSWORD_EMPTY: 'رمز عبور نمی‌تواند خالی باشد.',
   PASSWORD_SIX_CHAR: 'رمز عبور نمی‌تواند کمتر از ۶ کاراکتر باشد.',
   PASS_MUST_MATCH: 'رمز عبور و تکرار آن باید یکسان باشند.',
-  FIELD_EMPTY: 'اطلاعات فوق نمی‌تواند خالی باشد.',
+  FIELD_EMPTY: '*اطلاعات ستاره‌دار نمی‌تواند خالی باشد.',
 };
 
 export const successes = {

@@ -3,25 +3,32 @@ import PropTypes from 'prop-types';
 import '../../../../components/Inputs/SimpleInput/styles.scss';
 
 function RegisterField({
-  error, placeholder, type, onChange, colClassName, value, labelText, isUsername,
+  error, placeholder, type, onChange, colClassName, value, labelText, isUsername, canBeEmpty,
 }) {
   return (
     <div className={colClassName}>
       <label>{labelText}</label>
-      <input
-        type={type}
-        className={value === '' ? 'form-control is-invalid' : 'form-control'}
-        placeholder={placeholder}
-        onChange={onChange}
-        value={value}
-      />
-      {error
-        ? (
-          <div>
-            <p className="sampleInputError">{error}</p>
+      <div className={isUsername ? 'input-group' : ''}>
+        {isUsername ? (
+          <div className="input-group-prepend">
+            <span className="input-group-text username-badge">@</span>
           </div>
-        )
-        : null}
+        ) : <div />}
+        <input
+          type={type}
+          className={error ? 'form-control is-invalid' : 'form-control'}
+          placeholder={placeholder}
+          onChange={onChange}
+          value={value}
+        />
+        {error
+          ? (
+            <div>
+              <p className="sampleInputError">{error}</p>
+            </div>
+          )
+          : null}
+      </div>
     </div>
   );
 }
@@ -36,6 +43,7 @@ RegisterField.propTypes = {
   colClassName: PropTypes.string,
   labelText: PropTypes.string,
   isUsername: PropTypes.bool,
+  canBeEmpty: PropTypes.bool,
 };
 
 RegisterField.defaultProps = {
@@ -48,6 +56,7 @@ RegisterField.defaultProps = {
   className: '',
   value: null,
   isUsername: false,
+  canBeEmpty: false,
 };
 
 export default RegisterField;
