@@ -18,7 +18,7 @@ function ProjectDescription({
             {title}
           </h6>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4" style={{ textAlign: 'left' }}>
           <ProjectTime time={deadline} showStyle="projectSummary" />
         </div>
       </div>
