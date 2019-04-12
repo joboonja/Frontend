@@ -14,6 +14,7 @@ import
 } from './services/actions';
 import RegisterField from './componenets/RegisterField';
 import NotEmptyError from './componenets/NotEmptyError';
+import Card from '../../components/Card';
 
 class Register extends React.PureComponent {
   render() {
@@ -57,7 +58,7 @@ class Register extends React.PureComponent {
                 <div className="row register-final-row">
                   <RegisterCheckBox />
                   <div className="col-lg-7 col-md-4">
-                    <button className="register-btn btn btn-primary" type="submit">ثبت‌نام</button>
+                    <AddButton disabled={!valid}>ثبت‌نام</AddButton>
                   </div>
                 </div>
               </form>
