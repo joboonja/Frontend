@@ -16,8 +16,7 @@ const Register = handleActions({
       ...state,
       firstName,
       firstNameNotEmptyValid,
-      notEmptyValid: firstNameNotEmptyValid && state.lastNameNotEmptyValid
-          && state.jobNotEmptyValid,
+      notEmptyValid: fullValid,
       valid: state.passwordValid && fullValid
           && state.repeatedValid && state.userValid && state.checkBoxValid,
     });
@@ -31,8 +30,7 @@ const Register = handleActions({
       ...state,
       lastName,
       lastNameNotEmptyValid,
-      notEmptyValid: lastNameNotEmptyValid && state.firstNameNotEmptyValid
-              && state.jobNotEmptyValid,
+      notEmptyValid: fullValid,
       valid: state.passwordValid && fullValid
           && state.repeatedValid && state.userValid && state.checkBoxValid,
     });
@@ -46,15 +44,16 @@ const Register = handleActions({
       ...state,
       job,
       jobNotEmptyValid,
-      notEmptyValid: jobNotEmptyValid && state.firstNameNotEmptyValid
-              && state.lastNameNotEmptyValid,
-      valid: state.passwordValid && fullValid && state.repeatedValid && state.userValid && state.checkBoxValid,
+      notEmptyValid: fullValid,
+      valid: state.passwordValid && fullValid && state.repeatedValid
+          && state.userValid && state.checkBoxValid,
     });
   },
   [regImgLinkChanged]: (state, { payload: imgLink }) => ({
     ...state,
     imgLink,
-    valid: state.passwordValid && state.repeatedValid && state.userValid && state.checkBoxValid,
+    valid: state.passwordValid && state.repeatedValid
+        && state.userValid && state.checkBoxValid && state.notEmptyValid,
   }),
   [regImgLinkChanged]: (state, { payload: imgLink }) => ({
     ...state,
@@ -67,7 +66,7 @@ const Register = handleActions({
       ...state,
       username,
       userValid,
-      valid: state.passwordValid && userValid && state.checkBoxValid,
+      valid: state.passwordValid && userValid && state.checkBoxValid && state.notEmptyValid,
       userError,
     });
   },
@@ -86,7 +85,7 @@ const Register = handleActions({
       password,
       passwordError,
       passwordValid,
-      valid: passwordValid && state.userValid && state.checkBoxValid,
+      valid: passwordValid && state.userValid && state.checkBoxValid && state.notEmptyValid,
     });
   },
   [regRepeatedChanged]: (state, { payload: repeated }) => {
@@ -101,7 +100,8 @@ const Register = handleActions({
       repeated,
       repeatedError,
       repeatedValid,
-      valid: repeatedValid && state.passwordValid && state.userValid && state.checkBoxValid,
+      valid: repeatedValid && state.passwordValid
+          && state.userValid && state.checkBoxValid && state.notEmptyValid,
     });
   },
   [regDescriptionChanged]: (state, { payload: description }) => ({
