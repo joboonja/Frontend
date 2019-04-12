@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import { connect } from 'react-redux';
 import AddButton from '../../components/Buttons/AddButton';
-import SampleInput from '../../components/Inputs/SimpleInput';
 import SlideShow from './componenets/SlideShow';
 import RegisterTitle from './componenets/RegisterTitle';
 import RegisterCheckBox from './componenets/RegisterCheckBox';

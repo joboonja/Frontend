@@ -8,20 +8,20 @@
 }
 
 .loginCard {
-  width: 50vh;
-  min-height: 60vh;
+  width: 450px;
+  min-height: 530px;
   animation: open 0.5s alternate;
   overflow: hidden;
   padding-top: 10vh;
 }
 @keyframes open {
   0%{
-    width: 45vh;
-    min-height: 55vh;
+    width: 400px;
+    min-height: 490px;
   }
   100%{
-    width: 50vh;
-    min-height: 60vh;
+    width: 450px;
+    min-height: 530px;
   }
 }
 .loginTitle {
