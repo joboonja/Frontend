@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,aAAa,CAAC;EACV,KAAK,EAAE,GAAG;EACV,UAAU,EAAE,UAAU;EACtB,YAAY,EAAE,UAAU;EACxB,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,UAAkB;EACpC,WAAW,EAAE,IAAI;CACpB",
-    "sources": [
-        "projectImage.scss"
-    ],
-    "names": [],
-    "file": "projectImage.css"
-}
