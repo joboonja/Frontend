@@ -14,15 +14,14 @@ import
 } from './services/actions';
 import RegisterField from './componenets/RegisterField';
 import NotEmptyError from './componenets/NotEmptyError';
-import Card from '../../components/Card';
 
 class Register extends React.PureComponent {
   render() {
     const {
       username, password, repeatedPassword, firstName, lastName, imgLink, job,
       onUsernameChange, onPasswordChange, onRepeatedChange, onFirstNameChange, onLastNameChange,
-      onCheckBoxChange, onImgLinkChange, onJobChange, valid, userError, passwordError, repeatedError,
-      notEmptyError,
+      onCheckBoxChange, onImgLinkChange, onJobChange, valid, userError, passwordError,
+      repeatedError, notEmptyValid,
     } = this.props;
     return (
       <body className="register-body">
@@ -32,7 +31,7 @@ class Register extends React.PureComponent {
             <div className="register-card-container container">
               <RegisterTitle />
               <form className="needs-validation" noValidate>
-                {notEmptyError ? <NotEmptyError /> : <div />}
+                {notEmptyValid ? <div /> : <NotEmptyError />}
                 <div className="form-row">
                   <RegisterField colClassName="col-md-4 mb-3" labelText="نام*" placeholder="نام" value={firstName} onChange={onFirstNameChange} />
                   <RegisterField colClassName="col-md-4 mb-3" labelText="نام خانوادگی*" placeholder="نام خانوادگی" value={lastName} onChange={onLastNameChange} />
@@ -87,10 +86,10 @@ Register.propTypes = {
   onJobChange: PropTypes.func.isRequired,
   onCheckBoxChange: PropTypes.func.isRequired,
   valid: PropTypes.bool.isRequired,
+  notEmptyValid: PropTypes.bool.isRequired,
   userError: PropTypes.string.isRequired,
   passwordError: PropTypes.string.isRequired,
   repeatedError: PropTypes.string.isRequired,
-  notEmptyError: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = store => ({
@@ -104,7 +103,7 @@ const mapStateToProps = store => ({
   userError: store.Register.userError,
   passwordError: store.Register.passwordError,
   repeatedError: store.Register.repeatedError,
-  notEmptyError: store.Register.notEmptyError,
+  notEmptyValid: store.Register.notEmptyValid,
   valid: store.Register.valid,
 });
 
