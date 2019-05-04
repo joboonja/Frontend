@@ -7,7 +7,7 @@ import { ClipLoader } from 'react-spinners';
 function OthersSkillItem({
   onClick, endorsed, skill, loading,
 }) {
-  const points = endorsed
+  const points = !endorsed
     ? (
       <button onClick={onClick} data-hover="-" className="badge endorseBadge" type="button" disabled={loading}>
         { !loading ? skill.points

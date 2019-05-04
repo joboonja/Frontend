@@ -26,7 +26,7 @@ class OthersProfileSkill extends React.Component {
         }}
         type="Others"
         skill={item}
-        endorsed={item.peopleWhoEndrosed.indexOf(id) < 0}
+        endorsed={item.endorsedOrNot}
         loading={item.name === skill && loading}
       />
     ));
@@ -45,7 +45,7 @@ OthersProfileSkill.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     points: PropTypes.number,
-    peopleWhoEndrosed: PropTypes.arrayOf(PropTypes.string),
+    endorsedOrNot: PropTypes.boolean,
   })),
   endorse: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
