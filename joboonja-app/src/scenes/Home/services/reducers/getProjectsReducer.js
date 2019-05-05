@@ -7,8 +7,8 @@ import { projectsReqErr, projectsReqSuccess, projectsReqSent } from '../actions/
 
 const getProjectsReducer = handleActions(
   {
-    [projectsReqSent]: state => ({
-      ...state, loading: true, error: '', success: false, skills: [],
+    [projectsReqSent]: (state, { payload: search }) => ({
+      ...state, loading: true, error: '', success: false, projects: search ? [] : state.projects,
     }),
     [projectsReqErr]: (state, { payload: error }) => {
       toast.error(<ToastMsg msg={errors.CAN_NOT_GET_PROJECTS} reason={error.toString()} />);
@@ -16,13 +16,13 @@ const getProjectsReducer = handleActions(
         ...state, error: error.toString(), loading: false,
       });
     },
-    [projectsReqSuccess]: (state, { payload: projects }) => {
+    [projectsReqSuccess]: (state, { payload: { projects, pageNumber } }) => {
       const projectsEnd = (projects.length < 10);
       return ({
         ...state,
         loading: false,
         success: true,
-        projects: state.projects.concat(projects),
+        projects: pageNumber === 1 ? projects : state.projects.concat(projects),
         projectsEnd,
       });
     },

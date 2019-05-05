@@ -7,12 +7,12 @@ export const { projectsReqSent, projectsReqErr, projectsReqSuccess } = createAct
   'PROJECTS_REQ_ERR',
   'PROJECTS_REQ_SUCCESS',
 );
-export function requestForProjects(pageNumber) {
+export function requestForProjects(pageNumber, search = '') {
   return (dispatch) => {
-    dispatch(projectsReqSent());
-    Axios.get(urlsConfig.projects(pageNumber))
+    dispatch(projectsReqSent(search));
+    Axios.get(urlsConfig.projects(pageNumber, search))
       .then((response) => {
-        dispatch(projectsReqSuccess(response.data));
+        dispatch(projectsReqSuccess({ projects: response.data, pageNumber }));
       })
       .catch((error) => {
         dispatch(projectsReqErr(error));

@@ -16,8 +16,8 @@ class Projects extends React.Component {
   }
 
   componentDidMount() {
-    // const { getProjects } = this.props;
-    // getProjects();
+    const { getProjects } = this.props;
+    getProjects(1);
   }
 
   render() {

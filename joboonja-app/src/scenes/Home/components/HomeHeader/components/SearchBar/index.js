@@ -5,8 +5,11 @@ import { connect } from 'react-redux';
 import AddButton from '../../../../../../components/Buttons/AddButton';
 import SearchInput from './components/SearchInput';
 import { projectSearchChanged } from '../../../../services/actions/projectSearchAction';
+import { requestForProjects } from '../../../../services/actions/getProjectsActions';
 
-function SearchBar({ valid, projectSearchValue, onSearchChange }) {
+function SearchBar({
+  valid, projectSearchValue, onSearchChange, search,
+}) {
   return (
     <div className="searchBarContainer">
       <div className="searchBar">
@@ -14,7 +17,7 @@ function SearchBar({ valid, projectSearchValue, onSearchChange }) {
           <SearchInput value={projectSearchValue} onChange={onSearchChange} />
         </div>
         <div className="searchButtonContainer">
-          <AddButton color="#fffff" disabled={!valid}>
+          <AddButton color="#fffff" disabled={!valid} onClick={() => search(projectSearchValue)}>
             جستجو
           </AddButton>
         </div>
@@ -27,6 +30,7 @@ SearchBar.propTypes = {
   valid: PropTypes.bool.isRequired,
   projectSearchValue: PropTypes.string.isRequired,
   onSearchChange: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = store => ({
@@ -36,6 +40,7 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   onSearchChange: (e) => { dispatch(projectSearchChanged(e.target.value)); },
+  search: (search) => { dispatch(requestForProjects(1, search)); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

@@ -11,6 +11,10 @@ export const urlsConfig = {
   addSkill: '/skills',
   allSkills: '/endorsableSkills',
   endorse: id => `/skills/${id}`,
-  projects: pageNumber => `/projects?pageNumber=${pageNumber}`,
+  projects: (pageNumber, search = '') => {
+    let url = `/projects?pageNumber=${pageNumber}`;
+    if (search) url += `&search=${search}`;
+    return url;
+  },
   getProject: id => `/projects/${id}`,
 };

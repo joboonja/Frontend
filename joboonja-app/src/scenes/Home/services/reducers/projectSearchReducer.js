@@ -1,8 +1,8 @@
 import { handleActions } from 'redux-actions';
-import { projectSearchChanged } from '../actions/projectSearchAction';
+import { projectValueChanged } from '../actions/projectSearchAction';
 
 const projectSearchReducer = handleActions({
-  [projectSearchChanged]: (state, { payload: projectSearch }) => ({
+  [projectValueChanged]: (state, { payload: projectSearch }) => ({
     ...state, projectSearch, valid: projectSearch !== '',
   }),
 },
