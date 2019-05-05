@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import InfiniteScroll from 'react-infinite-scroller';
 import ProjectSummary from './components/ProjectSummary';
 import { requestForProjects } from '../../services/actions/getProjectsActions';
-import PageLoading from '../../../../components/Loadings/PageLoading';
+import ListLoading from '../../../../components/Loadings/ListLoading';
 
 class Projects extends React.Component {
   constructor(props) {
@@ -15,8 +16,8 @@ class Projects extends React.Component {
   }
 
   componentDidMount() {
-    const { getProjects } = this.props;
-    getProjects();
+    // const { getProjects } = this.props;
+    // getProjects();
   }
 
   render() {
@@ -24,7 +25,9 @@ class Projects extends React.Component {
     if (redirect) {
       return <Redirect push to={`/projects/${redirect}`} />;
     }
-    const { projects, loading } = this.props;
+    const {
+      projects, loading, getProjects, hasMore,
+    } = this.props;
     const projectsList = projects.map(item => (
       <ProjectSummary
         image={item.imageURL}
@@ -38,10 +41,21 @@ class Projects extends React.Component {
     ));
     return (
       <div className="scrollableSectionSection" style={{ maxHeight: '460px' }}>
-        {loading
-          ? <PageLoading />
-          : projectsList
-        }
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={(page) => {
+            getProjects(page);
+          }}
+          hasMore={!loading && hasMore}
+          useWindow={false}
+          threshold={2}
+        >
+          {projectsList}
+        </InfiniteScroll>
+        { loading
+          ? <ListLoading loading size={16} />
+          : <div /> }
+
         <div className="shadowContainer" />
       </div>
     );
@@ -60,15 +74,17 @@ Projects.propTypes = {
     skills: PropTypes.object,
   })).isRequired,
   loading: PropTypes.bool.isRequired,
+  hasMore: PropTypes.bool.isRequired,
 };
 const mapStateToProps = store => ({
   projects: store.Home.getProjectsReducer.projects,
   loading: store.Home.getProjectsReducer.loading,
+  hasMore: !store.Home.getProjectsReducer.projectsEnd,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getProjects: () => {
-    dispatch(requestForProjects());
+  getProjects: (pageNumber) => {
+    dispatch(requestForProjects(pageNumber));
   },
 });
 

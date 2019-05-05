@@ -1,7 +1,7 @@
 .scrollableSectionSection {
   max-height: 410px;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   direction: ltr ;
   overflow-style: marquee-block;
   padding: 5px;

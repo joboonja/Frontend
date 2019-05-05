@@ -7,10 +7,10 @@ export const { projectsReqSent, projectsReqErr, projectsReqSuccess } = createAct
   'PROJECTS_REQ_ERR',
   'PROJECTS_REQ_SUCCESS',
 );
-export function requestForProjects() {
+export function requestForProjects(pageNumber) {
   return (dispatch) => {
     dispatch(projectsReqSent());
-    Axios.get(urlsConfig.projects)
+    Axios.get(urlsConfig.projects(pageNumber))
       .then((response) => {
         dispatch(projectsReqSuccess(response.data));
       })

@@ -16,14 +16,22 @@ const getProjectsReducer = handleActions(
         ...state, error: error.toString(), loading: false,
       });
     },
-    [projectsReqSuccess]: (state, { payload: projects }) => ({
-      ...state, loading: false, success: true, projects,
-    }),
+    [projectsReqSuccess]: (state, { payload: projects }) => {
+      const projectsEnd = (projects.length < 10);
+      return ({
+        ...state,
+        loading: false,
+        success: true,
+        projects: state.projects.concat(projects),
+        projectsEnd,
+      });
+    },
   },
   {
     loading: false,
     error: '',
     success: false,
+    projectsEnd: false,
     projects: [],
   },
 );

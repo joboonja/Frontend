@@ -11,6 +11,6 @@ export const urlsConfig = {
   addSkill: '/skills',
   allSkills: '/endorsableSkills',
   endorse: id => `/skills/${id}`,
-  projects: '/projects',
+  projects: pageNumber => `/projects?pageNumber=${pageNumber}`,
   getProject: id => `/projects/${id}`,
 };
