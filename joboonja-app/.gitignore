@@ -29,5 +29,5 @@ yarn.lock
 # Jetbrains
 .idea
 
-
+package-lock.json
 
