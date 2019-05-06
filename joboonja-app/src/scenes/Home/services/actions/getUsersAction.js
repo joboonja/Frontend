@@ -7,10 +7,12 @@ export const { usersReqSent, usersReqErr, usersReqSuccess } = createActions(
   'USERS_REQ_ERR',
   'USERS_REQ_SUCCESS',
 );
-export function requestForUsers() {
+
+
+export function requestForUsers(search = '') {
   return (dispatch) => {
-    dispatch(usersReqSent());
-    Axios.get(urlsConfig.users)
+    dispatch(usersReqSent(search));
+    Axios.get(urlsConfig.users(search))
       .then((response) => {
         dispatch(usersReqSuccess(response.data));
       })

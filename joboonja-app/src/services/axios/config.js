@@ -1,10 +1,11 @@
+/* eslint-disable prefer-template */
 export const baseConfig = {
   baseURL: 'http://localhost:8080',
 };
 
 
 export const urlsConfig = {
-  users: '/users',
+  users: search => '/users' + (search ? `?search=${search}` : ''),
   getProfile: id => `/users/${id}`,
   removeSkill: skillName => `/skills/${skillName}`,
   bidOnProject: '/bids',

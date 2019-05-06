@@ -9,7 +9,7 @@ import { usersReqErr, usersReqSuccess, usersReqSent } from '../actions/getUsersA
 const getUsersReducer = handleActions(
   {
     [usersReqSent]: state => ({
-      ...state, loading: true, error: '', success: false, skills: [],
+      ...state, loading: true, error: '', success: false, users: [],
     }),
     [usersReqErr]: (state, { payload: error }) => {
       toast.error(<ToastMsg msg={errors.CAN_NOT_GET_USERS} reason={error.toString()} />);
