@@ -1,4 +1,4 @@
-import { createActions } from 'redux-actions';
+import { createActions, createAction } from 'redux-actions';
 import Axios from '../../../services/axios';
 import { urlsConfig } from '../../../services/axios/config';
 
@@ -7,6 +7,7 @@ export const { usernameChanged, passwordChanged } = createActions(
   'PASSWORD_CHANGED',
 );
 
+export const loginCleanData = createAction('LOGIN_CLEAN_DATA');
 export const { loginReqSent, loginReqSuccess, loginReqError } = createActions(
   'LOGIN_REQ_SENT',
   'LOGIN_REQ_SUCCESS',

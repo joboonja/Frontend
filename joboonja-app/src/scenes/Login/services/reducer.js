@@ -1,18 +1,33 @@
 import { handleActions } from 'redux-actions';
 import { toast } from 'react-toastify';
 import React from 'react';
-import { usernameChanged, passwordChanged } from './actions';
+import { usernameChanged, passwordChanged, loginCleanData } from './actions';
 import { loginReqSent, loginReqError, loginReqSuccess } from './actions';
 import { errors } from '../../../services/toast/config';
 import { tokenConfig } from '../../../services/axios/config';
 import { ToastMsg } from '../../../components/Toast';
 
+const defaultState = {
+  username: '',
+  password: '',
+  valid: false,
+  userValid: false,
+  passwordValid: false,
+  passwordError: '',
+  userError: '',
+  loginError: '',
+  loading: false,
+  success: false,
+  token: '',
+  error: '',
+};
 const Login = handleActions({
+  [loginCleanData]: () => Object.assign({}, defaultState),
   [usernameChanged]: (state, { payload: username }) => {
     const userValid = username !== '';
     const userError = userValid ? '' : errors.USER_EMPTY;
     return ({
-      ...state, username, userValid, valid: state.passwordValid && userValid, userError,
+      ...state, username, userValid, valid: state.passwordValid && userValid, userError, loginError: '',
     });
   },
   [passwordChanged]: (state, { payload: password }) => {
@@ -26,7 +41,7 @@ const Login = handleActions({
       passwordError = errors.PASSWORD_SIX_CHAR;
     }
     return ({
-      ...state, password, passwordError, passwordValid, valid: passwordValid && state.userValid,
+      ...state, password, passwordError, passwordValid, valid: passwordValid && state.userValid, loginError: '',
     });
   },
   [loginReqSent]: state => ({
@@ -34,10 +49,12 @@ const Login = handleActions({
   }),
   [loginReqSuccess]: (state, { payload: { token } }) => {
     localStorage.setItem(tokenConfig.localStorageKey, token);
-    return { ...state, token, loading: false };
+    return {
+      ...state, token, loading: false, success: true,
+    };
   },
   [loginReqError]: (state, { payload: error }) => {
-    if (error.status === 418) {
+    if (error && error.response.status === 418) {
       return {
         ...state, error, loginError: errors.LOGIN_FAILURE, loading: false,
       };
@@ -46,21 +63,9 @@ const Login = handleActions({
       msg={errors.CAN_NOT_LOGIN}
       reason={error.toString()}
     />);
-    return { ...state, error, loading: false};
+    return { ...state, error, loading: false };
   },
 },
-{
-  username: '',
-  password: '',
-  valid: false,
-  userValid: false,
-  passwordValid: false,
-  passwordError: '',
-  userError: '',
-  loginError: '',
-  loading: false,
-  token: '',
-  error: '',
-});
+defaultState);
 
 export default Login;

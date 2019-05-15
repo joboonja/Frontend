@@ -192,7 +192,7 @@ const Register = handleActions({
       reason={error.response.status === 403 ? errors.USER_EXISTS : error.toString()}
     />);
     let userExists = '';
-    if (error.response.status === 403) {
+    if (error && error.response.status === 403) {
       userExists = errors.USER_EXISTS;
     }
     return ({
