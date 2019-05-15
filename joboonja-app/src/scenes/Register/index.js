@@ -1,7 +1,9 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import AddButton from '../../components/Buttons/AddButton';
 import SlideShow from './componenets/SlideShow';
 import RegisterTitle from './componenets/RegisterTitle';
@@ -9,7 +11,8 @@ import RegisterCheckBox from './componenets/RegisterCheckBox';
 import
 {
   regUsernameChanged, regPasswordChanged, regRepeatedChanged, regFirstNameChanged,
-  regLastNameChanged, regImgLinkChanged, regJobChanged, regCheckBoxChanged,
+  regLastNameChanged, regImgLinkChanged, regJobChanged, regCheckBoxChanged, addUser,
+  regDescriptionChanged, regReset,
 } from './services/actions';
 import RegisterField from './componenets/RegisterField';
 import NotEmptyError from './componenets/NotEmptyError';
@@ -20,8 +23,12 @@ class Register extends React.PureComponent {
       username, password, repeatedPassword, firstName, lastName, imgLink, job,
       onUsernameChange, onPasswordChange, onRepeatedChange, onFirstNameChange, onLastNameChange,
       onCheckBoxChange, onImgLinkChange, onJobChange, valid, userError, passwordError,
-      repeatedError, notEmptyValid,
+      repeatedError, notEmptyValid, success, loading, onButtonClick, onBioChange, bio, registerReset,
     } = this.props;
+    if (success) {
+      registerReset();
+      return <Redirect push to="/" />;
+    }
     return (
       <body className="register-body">
         <SlideShow />
@@ -49,14 +56,14 @@ class Register extends React.PureComponent {
                 </div>
                 <div className="input-group ">
                   <div className="input-group-prepend">
-                    <span className="input-group-text username-badge">درباره‌ی خود بنویسید</span>
+                    <span className="input-group-text username-badge" onChange={onBioChange}>درباره‌ی خود بنویسید</span>
                   </div>
                   <textarea className="form-control register-text-area" />
                 </div>
                 <div className="row register-final-row">
                   <RegisterCheckBox onClick={onCheckBoxChange} />
                   <div className="col-lg-7 col-md-4">
-                    <AddButton disabled={!valid}>ثبت‌نام</AddButton>
+                    <AddButton disabled={!valid} loading={loading} onClick={()=>onButtonClick(username, firstName, lastName, password, job, imgLink, bio)}>ثبت‌نام</AddButton>
                   </div>
                 </div>
               </form>
@@ -76,6 +83,7 @@ Register.propTypes = {
   lastName: PropTypes.string.isRequired,
   imgLink: PropTypes.string.isRequired,
   job: PropTypes.string.isRequired,
+  bio: PropTypes.string.isRequired,
   onUsernameChange: PropTypes.func.isRequired,
   onPasswordChange: PropTypes.func.isRequired,
   onRepeatedChange: PropTypes.func.isRequired,
@@ -89,6 +97,10 @@ Register.propTypes = {
   userError: PropTypes.string.isRequired,
   passwordError: PropTypes.string.isRequired,
   repeatedError: PropTypes.string.isRequired,
+  success: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  onButtonClick: PropTypes.func.isRequired,
+  regReset: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = store => ({
@@ -99,11 +111,14 @@ const mapStateToProps = store => ({
   lastName: store.Register.lastName,
   imgLink: store.Register.imgLink,
   job: store.Register.job,
+  bio: store.Register.description,
   userError: store.Register.userError,
   passwordError: store.Register.passwordError,
   repeatedError: store.Register.repeatedError,
   notEmptyValid: store.Register.notEmptyValid,
   valid: store.Register.valid,
+  success: store.Register.success,
+  loading: store.Register.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -114,7 +129,10 @@ const mapDispatchToProps = dispatch => ({
   onLastNameChange: (e) => { dispatch(regLastNameChanged(e.target.value)); },
   onImgLinkChange: (e) => { dispatch(regImgLinkChanged(e.target.value)); },
   onJobChange: (e) => { dispatch(regJobChanged(e.target.value)); },
+  onBioChange: (e) => { dispatch(regDescriptionChanged(e.target.value)); },
   onCheckBoxChange: (e) => { dispatch(regCheckBoxChanged(e.target.value)); },
+  onButtonClick: (username, firstName, lastName, password, jobTitle, profilePictureUrl, bio) => { dispatch(addUser(username, firstName, lastName, password, jobTitle, profilePictureUrl, bio)); },
+  registerReset: () => {dispatch(regReset())},
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

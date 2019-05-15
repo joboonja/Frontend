@@ -1,10 +1,39 @@
 import { handleActions } from 'redux-actions';
+import { toast } from 'react-toastify';
+import React from 'react';
 import {
-  regUsernameChanged, regPasswordChanged, regRepeatedChanged,
+  regUsernameChanged, regPasswordChanged, regRepeatedChanged, regReset,
   regFirstNameChanged, regLastNameChanged, regImgLinkChanged, regJobChanged,
-  regDescriptionChanged, regCheckBoxChanged,
+  regDescriptionChanged, regCheckBoxChanged, regReqSent, regReqSuccess, regReqError,
 } from './actions';
-import { errors } from '../../../services/toast/config';
+import { errors, successes } from '../../../services/toast/config';
+import { ToastMsg } from '../../../components/Toast';
+
+const defaultState = {
+  username: '',
+  password: '',
+  repeatedPassword: '',
+  firstName: '',
+  lastName: '',
+  imgLink: '',
+  job: '',
+  description: '',
+  valid: false,
+  firstNameNotEmptyValid: false,
+  lastNameNotEmptyValid: false,
+  jobNotEmptyValid: false,
+  notEmptyValid: false,
+  userValid: false,
+  passwordValid: false,
+  repeatedValid: false,
+  checkBoxValid: false,
+  passwordError: errors.PASSWORD_EMPTY,
+  userError: errors.USER_EMPTY,
+  repeatedError: errors.PASS_MUST_MATCH,
+  notEmptyError: errors.FIELD_EMPTY,
+  success: false,
+  loading: false,
+};
 
 const Register = handleActions({
   [regFirstNameChanged]: (state, { payload: firstName }) => {
@@ -127,6 +156,35 @@ const Register = handleActions({
               && state.repeatedValid && state.userValid && checkValid),
     });
   },
+  [regReqSent]: state => ({
+    ...state,
+    loading: true,
+  }),
+  [regReqSuccess]: (state) => {
+    toast.success(<ToastMsg msg={successes.ADD_USER} />);
+    return ({
+      ...state,
+      success: true,
+      loading: false,
+    });
+  },
+  [regReqError]: (state, { payload: error }) => {
+    toast.error(<ToastMsg
+      msg={errors.ADD_USER}
+      reason={error.response.status === 403 ? errors.USER_EXISTS : error.toString()}
+    />);
+    let userExists = '';
+    if (error.response.status === 403) {
+      userExists = errors.USER_EXISTS;
+    }
+    return ({
+      ...state,
+      userError: userExists,
+      success: false,
+      loading: false,
+    });
+  },
+  [regReset]: () => (Object.assign({}, defaultState)),
 },
 {
   username: '',
@@ -150,6 +208,8 @@ const Register = handleActions({
   userError: errors.USER_EMPTY,
   repeatedError: errors.PASS_MUST_MATCH,
   notEmptyError: errors.FIELD_EMPTY,
+  success: false,
+  loading: false,
 });
 
 export default Register;

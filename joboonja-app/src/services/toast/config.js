@@ -11,10 +11,13 @@ export const errors = {
   PASSWORD_SIX_CHAR: 'رمز عبور نمی‌تواند کمتر از ۶ کاراکتر باشد.',
   PASS_MUST_MATCH: 'رمز عبور و تکرار آن باید یکسان باشند.',
   FIELD_EMPTY: '*اطلاعات ستاره‌دار نمی‌تواند خالی باشد.',
+  ADD_USER: 'ثبت‌نام شما با مشکل مواجه شد. لطفا دوباره تلاش کنید.',
+  USER_EXISTS: 'نام کاربری تکراری است.',
 };
 
 export const successes = {
   ADD_SKILL: skillName => `توانایی ${skillName} با موفقیت اضافه شد.`,
   ENDORSE_SKILL: skillName => `توانایی ${skillName} تایید شد.`,
   ADD_BID: amount => `پیشنهاد شما به مبلغ ${amount} ثبت شد.`,
+  ADD_USER: 'ثبت‌نام شما با موفقیت انجام شد.',
 };
