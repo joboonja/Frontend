@@ -3,6 +3,9 @@ export const baseConfig = {
   baseURL: 'http://localhost:8080',
 };
 
+export const tokenConfig = {
+  localStorageKey: 'token',
+};
 
 export const urlsConfig = {
   users: search => '/users' + (search ? `?search=${search}` : ''),
@@ -18,4 +21,5 @@ export const urlsConfig = {
     return url;
   },
   getProject: id => `/projects/${id}`,
+  login: '/login',
 };

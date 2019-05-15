@@ -13,6 +13,8 @@ export const errors = {
   FIELD_EMPTY: '*اطلاعات ستاره‌دار نمی‌تواند خالی باشد.',
   ADD_USER: 'ثبت‌نام شما با مشکل مواجه شد. لطفا دوباره تلاش کنید.',
   USER_EXISTS: 'نام کاربری تکراری است.',
+  LOGIN_FAILURE: 'نام‌کاربری یا رمز عبور اشتباه است.',
+  CAN_NOT_LOGIN: 'امکان ورود وجود ندارد.',
 };
 
 export const successes = {

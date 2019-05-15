@@ -6,12 +6,21 @@ import Card from '../../components/Card';
 import './styles.scss';
 import AddButton from '../../components/Buttons/AddButton';
 import SampleInput from '../../components/Inputs/SimpleInput';
-import { usernameChanged, passwordChanged } from './services/actions';
+import { usernameChanged, passwordChanged, login } from './services/actions';
 
 class Login extends React.PureComponent {
   render() {
     const {
-      username, password, onPasswordChange, onUserChange, valid, userError, passwordError,
+      username,
+      password,
+      onPasswordChange,
+      onUserChange,
+      valid,
+      userError,
+      passwordError,
+      loginError,
+      loading,
+      login,
     } = this.props;
     return (
       <div className="main">
@@ -27,7 +36,10 @@ class Login extends React.PureComponent {
             </form>
 
             <div className="row loginButtonContainer">
-              <AddButton width="100px" disabled={!valid}>ورود</AddButton>
+              <AddButton width="100px" disabled={!valid} onClick={() => { login(username, password); }} loading={loading}>
+                ورود
+              </AddButton>
+              {loginError}
             </div>
 
             <div className="loginFooter">
@@ -49,6 +61,8 @@ Login.propTypes = {
   userError: PropTypes.string.isRequired,
   passwordError: PropTypes.string.isRequired,
   valid: PropTypes.bool.isRequired,
+  loginError: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = store => ({
@@ -57,11 +71,14 @@ const mapStateToProps = store => ({
   userError: store.Login.userError,
   passwordError: store.Login.passwordError,
   valid: store.Login.valid,
+  loginError: store.Login.loginError,
+  loading: store.Login.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
   onUserChange: (e) => { dispatch(usernameChanged(e.target.value)); },
   onPasswordChange: (e) => { dispatch(passwordChanged(e.target.value)); },
+  login: (username, password) => { dispatch(login(username, password)); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
