@@ -22,7 +22,7 @@ class Register extends React.PureComponent {
     const {
       username, password, repeatedPassword, firstName, lastName, imgLink, job,
       onUsernameChange, onPasswordChange, onRepeatedChange, onFirstNameChange, onLastNameChange,
-      onCheckBoxChange, onImgLinkChange, onJobChange, valid, userError, passwordError,
+      onCheckBoxChange, onImgLinkChange, onJobChange, valid, userError, passwordError, start,
       repeatedError, notEmptyValid, success, loading, onButtonClick, onBioChange, bio, registerReset,
     } = this.props;
     if (success) {
@@ -41,7 +41,7 @@ class Register extends React.PureComponent {
                 <div className="form-row">
                   <RegisterField colClassName="col-md-4 mb-3" labelText="نام*" placeholder="نام" value={firstName} onChange={onFirstNameChange} />
                   <RegisterField colClassName="col-md-4 mb-3" labelText="نام خانوادگی*" placeholder="نام خانوادگی" value={lastName} onChange={onLastNameChange} />
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام‌کاربری*" placeholder="نام‌کاربری" value={username} onChange={onUsernameChange} error={userError} isUsername />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام‌کاربری*" placeholder="نام‌کاربری" value={username} onChange={onUsernameChange} error={start ? '' : userError} isUsername />
                 </div>
                 <div className="custom-file file-selector form-row">
                   <div className="form-row">
@@ -51,8 +51,8 @@ class Register extends React.PureComponent {
                 </div>
                 <div className="form-row">
                   <RegisterField colClassName="col-md-4 mb-3" labelText="عنوان شغل*" placeholder="عنوان شغل" value={job} onChange={onJobChange} />
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="رمز عبور*" placeholder="رمز عبور" value={password} onChange={onPasswordChange} error={passwordError} type="password" />
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="تکرار رمز عبور*" placeholder="تکرار رمز عبور" value={repeatedPassword} onChange={onRepeatedChange} error={repeatedError} type="password" />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="رمز عبور*" placeholder="رمز عبور" value={password} onChange={onPasswordChange} error={start ? '' : passwordError} type="password" />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="تکرار رمز عبور*" placeholder="تکرار رمز عبور" value={repeatedPassword} onChange={onRepeatedChange} error={start? '' : repeatedError} type="password" />
                 </div>
                 <div className="input-group ">
                   <div className="input-group-prepend">
@@ -119,6 +119,7 @@ const mapStateToProps = store => ({
   valid: store.Register.valid,
   success: store.Register.success,
   loading: store.Register.loading,
+  start: store.Register.start,
 });
 
 const mapDispatchToProps = dispatch => ({

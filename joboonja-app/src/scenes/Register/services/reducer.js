@@ -27,12 +27,13 @@ const defaultState = {
   passwordValid: false,
   repeatedValid: false,
   checkBoxValid: false,
-  passwordError: errors.PASSWORD_EMPTY,
-  userError: errors.USER_EMPTY,
-  repeatedError: errors.PASS_MUST_MATCH,
+  passwordError: '',
+  userError: '',
+  repeatedError: '',
   notEmptyError: errors.FIELD_EMPTY,
   success: false,
   loading: false,
+  start: true,
 };
 
 const Register = handleActions({
@@ -43,6 +44,7 @@ const Register = handleActions({
         && state.jobNotEmptyValid;
     return ({
       ...state,
+      start: false,
       firstName,
       firstNameNotEmptyValid,
       notEmptyValid: fullValid,
@@ -57,6 +59,7 @@ const Register = handleActions({
             && state.jobNotEmptyValid;
     return ({
       ...state,
+      start: false,
       lastName,
       lastNameNotEmptyValid,
       notEmptyValid: fullValid,
@@ -71,6 +74,7 @@ const Register = handleActions({
             && state.lastNameNotEmptyValid;
     return ({
       ...state,
+      start: false,
       job,
       jobNotEmptyValid,
       notEmptyValid: fullValid,
@@ -80,12 +84,14 @@ const Register = handleActions({
   },
   [regImgLinkChanged]: (state, { payload: imgLink }) => ({
     ...state,
+    start: false,
     imgLink,
     valid: state.passwordValid && state.repeatedValid
         && state.userValid && state.checkBoxValid && state.notEmptyValid,
   }),
   [regImgLinkChanged]: (state, { payload: imgLink }) => ({
     ...state,
+    start: false,
     imgLink,
   }),
   [regUsernameChanged]: (state, { payload: username }) => {
@@ -93,6 +99,7 @@ const Register = handleActions({
     const userError = userValid ? '' : errors.USER_EMPTY;
     return ({
       ...state,
+      start: false,
       username,
       userValid,
       valid: state.passwordValid && userValid && state.checkBoxValid && state.notEmptyValid,
@@ -104,7 +111,9 @@ const Register = handleActions({
     let repeatedValid = true;
     let repeatedError = '';
     let passwordError = '';
+    let notEmpty = true;
     if (password === '') {
+      notEmpty = false;
       passwordValid = false;
       passwordError = errors.PASSWORD_EMPTY;
     } else if (password.length < 6) {
@@ -117,29 +126,35 @@ const Register = handleActions({
     }
     return ({
       ...state,
+      start: false,
       password,
       passwordError,
       passwordValid,
+      notEmptyValid: notEmpty,
       repeatedValid,
       repeatedError,
       valid: passwordValid && state.userValid && state.checkBoxValid
-          && state.notEmptyValid && repeatedValid,
+          && notEmpty && repeatedValid,
     });
   },
   [regRepeatedChanged]: (state, { payload: repeated }) => {
     let repeatedValid = true;
     let repeatedError = '';
+    let notEmpty = true;
     if (repeated !== state.password || repeated === '') {
+      if (repeated === '') notEmpty = false;
       repeatedValid = false;
       repeatedError = errors.PASS_MUST_MATCH;
     }
     return ({
       ...state,
+      start: false,
       repeated,
       repeatedError,
+      notEmptyValid: notEmpty,
       repeatedValid,
       valid: repeatedValid && state.passwordValid
-          && state.userValid && state.checkBoxValid && state.notEmptyValid,
+          && state.userValid && state.checkBoxValid && notEmpty,
     });
   },
   [regDescriptionChanged]: (state, { payload: description }) => ({
@@ -150,6 +165,7 @@ const Register = handleActions({
     const checkValid = !state.checkBoxValid;
     return ({
       ...state,
+      start: false,
       checkBoxValid: checkValid,
       valid:
           (state.passwordValid && state.notEmptyValid
@@ -158,12 +174,14 @@ const Register = handleActions({
   },
   [regReqSent]: state => ({
     ...state,
+    start: false,
     loading: true,
   }),
   [regReqSuccess]: (state) => {
     toast.success(<ToastMsg msg={successes.ADD_USER} />);
     return ({
       ...state,
+      start: false,
       success: true,
       loading: false,
     });
@@ -179,6 +197,7 @@ const Register = handleActions({
     }
     return ({
       ...state,
+      start: false,
       userError: userExists,
       success: false,
       loading: false,
@@ -186,30 +205,6 @@ const Register = handleActions({
   },
   [regReset]: () => (Object.assign({}, defaultState)),
 },
-{
-  username: '',
-  password: '',
-  repeatedPassword: '',
-  firstName: '',
-  lastName: '',
-  imgLink: '',
-  job: '',
-  description: '',
-  valid: false,
-  firstNameNotEmptyValid: false,
-  lastNameNotEmptyValid: false,
-  jobNotEmptyValid: false,
-  notEmptyValid: false,
-  userValid: false,
-  passwordValid: false,
-  repeatedValid: false,
-  checkBoxValid: false,
-  passwordError: errors.PASSWORD_EMPTY,
-  userError: errors.USER_EMPTY,
-  repeatedError: errors.PASS_MUST_MATCH,
-  notEmptyError: errors.FIELD_EMPTY,
-  success: false,
-  loading: false,
-});
+defaultState);
 
 export default Register;
