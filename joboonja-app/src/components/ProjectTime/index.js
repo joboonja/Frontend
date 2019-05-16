@@ -27,7 +27,7 @@ function ProjectTime({
     ) / (1000),
   );
   const ended = days < 0 || hours < 0 || minutes < 0;
-  if (ended && winner !== null) {
+  if (ended && winner) {
     clearInterval(timerId);
   }
   const daysStr = convertEnglishNumbersToPersian(days.toString());
@@ -38,7 +38,7 @@ function ProjectTime({
   return (
     <div>
       {
-        showStyle === 'winner' ? (ended ? <IconItem type="winner" text={winner === null ? 'تعیین نشده' : winner} textTitle="برنده: " /> : '')
+        showStyle === 'winner' ? (ended ? <IconItem type="winner" text={!winner ? 'تعیین نشده' : winner} textTitle="برنده: " /> : '')
           : showStyle === 'projectCard' ? (ended ? <IconItem type="deadlineReached" text="مهلت تمام شده" textTitle="" />
             : <IconItem type="deadline" text={`${daysStr} روز و ${hoursStr} ساعت و ${minutesStr} دقیقه و ${secondsStr} ثانیه `} textTitle="زمان باقی‌مانده:" />)
             : showStyle === 'bidCard' ? <BidCard ended={ended} id={id} />
