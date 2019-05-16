@@ -7,7 +7,7 @@ function Navbar() {
         <div className="row header-row">
           <NavbarImg />
           <NavbarItem name="حساب کاربری" url="/profile" />
-          <NavbarItem name="خروج" url="/login" />
+          <NavbarItem name="خروج" url="/login" logout/>
         </div>
       </ul>
     </nav>

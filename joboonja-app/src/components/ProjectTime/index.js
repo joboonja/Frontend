@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import ProjectSummaryTime from './components/ProjectSummaryTime';
 import convertEnglishNumbersToPersian from '../../services/convertEnglishNumbersToPersian';
 import IconItem from '../IconItem';
