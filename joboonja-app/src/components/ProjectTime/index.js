@@ -7,7 +7,9 @@ import convertEnglishNumbersToPersian from '../../services/convertEnglishNumbers
 import IconItem from '../IconItem';
 import BidCard from '../../scenes/Projects/components/ProjectInfoBox/components/BidCard';
 
-function ProjectTime({ time, showStyle, id }) {
+function ProjectTime({
+  time, showStyle, id, winner,
+}) {
   const [now, setNow] = useState(new Date());
   const timerId = setInterval(() => {
     setNow(new Date());
@@ -25,7 +27,7 @@ function ProjectTime({ time, showStyle, id }) {
     ) / (1000),
   );
   const ended = days < 0 || hours < 0 || minutes < 0;
-  if (ended) {
+  if (ended && winner !== null) {
     clearInterval(timerId);
   }
   const daysStr = convertEnglishNumbersToPersian(days.toString());
@@ -36,7 +38,7 @@ function ProjectTime({ time, showStyle, id }) {
   return (
     <div>
       {
-        showStyle === 'winner' ? (ended ? <IconItem type="winner" text="تعیین نشده" textTitle="برنده: " /> : '')
+        showStyle === 'winner' ? (ended ? <IconItem type="winner" text={winner === null ? 'تعیین نشده' : winner} textTitle="برنده: " /> : '')
           : showStyle === 'projectCard' ? (ended ? <IconItem type="deadlineReached" text="مهلت تمام شده" textTitle="" />
             : <IconItem type="deadline" text={`${daysStr} روز و ${hoursStr} ساعت و ${minutesStr} دقیقه و ${secondsStr} ثانیه `} textTitle="زمان باقی‌مانده:" />)
             : showStyle === 'bidCard' ? <BidCard ended={ended} id={id} />
@@ -56,6 +58,7 @@ function ProjectTime({ time, showStyle, id }) {
 
 ProjectTime.propTypes = {
   time: PropTypes.number.isRequired,
+  winner: PropTypes.string.isRequired,
   showStyle: PropTypes.oneOf(['projectSummary']).isRequired,
   id: PropTypes.string,
 };
