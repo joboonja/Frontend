@@ -6,7 +6,7 @@ import './styles.scss';
 import ProjectDescription from './components/ProjectDescription';
 
 function ProjectSummary({
-  image, title, description, budget, skills, deadline, onClick,
+  image, title, description, budget, skills, deadline, onClick, winner,
 }) {
   return (
     <div>
@@ -22,6 +22,7 @@ function ProjectSummary({
               description={description}
               budget={budget}
               deadline={deadline}
+              winner={winner}
             />
           </div>
         </div>
@@ -34,6 +35,7 @@ ProjectSummary.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  winner: PropTypes.string.isRequired,
   budget: PropTypes.number.isRequired,
   skills: PropTypes.arrayOf(PropTypes.Object).isRequired,
   deadline: PropTypes.number.isRequired,

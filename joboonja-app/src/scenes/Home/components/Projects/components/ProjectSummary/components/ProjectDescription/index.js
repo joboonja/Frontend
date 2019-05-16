@@ -6,7 +6,7 @@ import convertEnglishNumbersToPersian
   from '../../../../../../../../services/convertEnglishNumbersToPersian';
 
 function ProjectDescription({
-  title, description, budget, skills, deadline,
+  title, description, budget, skills, deadline, winner,
 }) {
   const budgetStr = convertEnglishNumbersToPersian((budget).toString());
   const skillsItems = Object.values(skills).map(item => <span className="projectSummarySkill">{item.name}</span>);
@@ -19,7 +19,7 @@ function ProjectDescription({
           </h6>
         </div>
         <div className="col-md-4" style={{ textAlign: 'left' }}>
-          <ProjectTime time={deadline} showStyle="projectSummary" />
+          <ProjectTime time={deadline} winner={winner} showStyle="projectSummary" />
         </div>
       </div>
       <div className="row">
@@ -46,6 +46,7 @@ ProjectDescription.propTypes = {
   budget: PropTypes.number.isRequired,
   skills: PropTypes.arrayOf(PropTypes.Object).isRequired,
   deadline: PropTypes.number.isRequired,
+  winner: PropTypes.string.isRequired,
 };
 
 export default ProjectDescription;
