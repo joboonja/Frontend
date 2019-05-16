@@ -29,8 +29,8 @@ export function addUser(username, firstName, lastName, password, jobTitle, profi
     Axios.post(urlsConfig.signup, {
       username, firstName, lastName, password, jobTitle, profilePictureUrl, bio,
     })
-      .then(() => {
-        dispatch(regReqSuccess());
+      .then((response) => {
+        dispatch(regReqSuccess(response.data));
       })
       .catch((error) => {
         dispatch(regReqError(error));

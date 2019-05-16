@@ -8,6 +8,7 @@ import {
 } from './actions';
 import { errors, successes } from '../../../services/toast/config';
 import { ToastMsg } from '../../../components/Toast';
+import { tokenConfig } from '../../../services/axios/config';
 
 const defaultState = {
   username: '',
@@ -177,8 +178,10 @@ const Register = handleActions({
     start: false,
     loading: true,
   }),
-  [regReqSuccess]: (state) => {
+  [regReqSuccess]: (state, { payload: { token } }) => {
     toast.success(<ToastMsg msg={successes.ADD_USER} />);
+    localStorage.setItem(tokenConfig.localStorageKey, token);
+    localStorage.setItem('username', state.username);
     return ({
       ...state,
       start: false,
