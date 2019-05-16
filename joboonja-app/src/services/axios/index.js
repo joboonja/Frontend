@@ -1,6 +1,19 @@
+/* eslint-disable */
 import axios from 'axios';
-import { baseConfig } from './config';
+import { baseConfig, tokenConfig } from './config';
 
 const Axios = axios.create(baseConfig);
+Axios.interceptors.request.use((config) => {
+  if(config.url === '/login' || ( config.url === '/users' && config.method === 'POST' ) )
+    return config;
+  config.headers.Authorization = `Bearer ${localStorage.getItem(tokenConfig.localStorageKey)}`;
+  return config;
+});
+
+Axios.interceptors.response.use(response => response, error => {
+  if(error && error.response.status === 401)
+    window.location.href = '/login';
+  return Promise.reject(error);
+});
 
 export default Axios;
