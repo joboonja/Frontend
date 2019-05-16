@@ -11,7 +11,8 @@ Axios.interceptors.request.use((config) => {
 });
 
 Axios.interceptors.response.use(response => response, error => {
-  if(error && error.response.status === 401)
+  if(error && ( error.response.status === 401 ||
+    error.response.config.url !== '/login' && error.response.status === 403 ))
     window.location.href = '/login';
   return Promise.reject(error);
 });
