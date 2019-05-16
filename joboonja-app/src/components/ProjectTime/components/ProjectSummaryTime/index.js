@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 function ProjectSummaryTime({
-  days, hours, minutes, ended,
+  days, hours, minutes, seconds, ended,
 }) {
   const remainedTime = (
     <span className="projectSummaryTime">
-      {`زمان باقی‌مانده: ${days}:${hours}:${minutes}`}
+      {`زمان باقی‌مانده: ${days}:${hours}:${minutes}:${seconds}`}
     </span>
   );
 
@@ -30,6 +30,7 @@ ProjectSummaryTime.propTypes = {
   days: PropTypes.string.isRequired,
   hours: PropTypes.string.isRequired,
   minutes: PropTypes.string.isRequired,
+  seconds: PropTypes.string.isRequired,
   ended: PropTypes.bool,
 };
 ProjectSummaryTime.defaultProps = {
