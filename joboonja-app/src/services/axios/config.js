@@ -22,4 +22,5 @@ export const urlsConfig = {
   },
   getProject: id => `/projects/${id}`,
   login: '/login',
+  signup: '/signup',
 };
