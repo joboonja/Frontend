@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ProjectSummaryTime from './components/ProjectSummaryTime';
 import convertEnglishNumbersToPersian from '../../services/convertEnglishNumbersToPersian';
 import IconItem from '../IconItem';
@@ -8,7 +9,7 @@ import BidCard from '../../scenes/Projects/components/ProjectInfoBox/components/
 
 function ProjectTime({ time, showStyle, id }) {
   const [now, setNow] = useState(new Date());
-  setInterval(() => {
+  const timerId = setInterval(() => {
     setNow(new Date());
   }, 500);
   const days = Math.floor((time - now) / (36e5 * 24));
@@ -24,6 +25,9 @@ function ProjectTime({ time, showStyle, id }) {
     ) / (1000),
   );
   const ended = days < 0 || hours < 0 || minutes < 0;
+  if (ended) {
+    clearInterval(timerId);
+  }
   const daysStr = convertEnglishNumbersToPersian(days.toString());
   const hoursStr = convertEnglishNumbersToPersian(hours.toString());
   const minutesStr = convertEnglishNumbersToPersian(minutes.toString());
