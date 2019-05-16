@@ -3,9 +3,9 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Profile from './scenes/Profile';
 
-const selfId = '1';
 
 export default function ProfileRoute({ match }) {
+  const selfId = localStorage.getItem('username');
   return (
     <div>
       <Route

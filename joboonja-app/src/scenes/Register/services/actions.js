@@ -26,7 +26,7 @@ export const
 export function addUser(username, firstName, lastName, password, jobTitle, profilePictureUrl, bio) {
   return (dispatch) => {
     dispatch(regReqSent());
-    Axios.post(urlsConfig.users(''), {
+    Axios.post(urlsConfig.signup, {
       username, firstName, lastName, password, jobTitle, profilePictureUrl, bio,
     })
       .then(() => {

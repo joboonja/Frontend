@@ -48,6 +48,7 @@ const Login = handleActions({
     ...state, loading: true, token: '', error: '',
   }),
   [loginReqSuccess]: (state, { payload: { token } }) => {
+    localStorage.setItem('username', state.username);
     localStorage.setItem(tokenConfig.localStorageKey, token);
     return {
       ...state, token, loading: false, success: true,
