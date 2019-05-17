@@ -65,7 +65,6 @@ function BidCard({
       </form>
     </div>
   );
-  console.log(loading);
   return (
     <div>
       <div className="container bid">
