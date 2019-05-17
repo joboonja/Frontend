@@ -56,9 +56,9 @@ class Register extends React.PureComponent {
                 </div>
                 <div className="input-group ">
                   <div className="input-group-prepend">
-                    <span className="input-group-text username-badge" onChange={onBioChange}>درباره‌ی خود بنویسید</span>
+                    <span className="input-group-text username-badge">درباره‌ی خود بنویسید</span>
                   </div>
-                  <textarea className="form-control register-text-area" />
+                  <textarea className="form-control register-text-area" onChange={onBioChange}/>
                 </div>
                 <div className="row register-final-row">
                   <RegisterCheckBox onClick={onCheckBoxChange} />
