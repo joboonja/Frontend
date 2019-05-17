@@ -36,7 +36,7 @@ class Projects extends React.Component {
         skills={item.skills}
         budget={item.budget}
         deadline={item.deadline}
-        winner={item.filter}
+        winner={item.winner}
         onClick={() => this.setState({ redirect: item.id })}
       />
     ));
@@ -72,8 +72,8 @@ Projects.propTypes = {
     imageURL: PropTypes.string,
     budget: PropTypes.number,
     deadline: PropTypes.number,
-    winner: PropTypes.string,
     skills: PropTypes.object,
+    winner: PropTypes.string,
   })).isRequired,
   loading: PropTypes.bool.isRequired,
   hasMore: PropTypes.bool.isRequired,

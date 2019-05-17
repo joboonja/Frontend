@@ -17,9 +17,9 @@ function ProjectCard({ project }) {
       <ProjectImg imgUrl={project.imageURL} />
       <div>
         <ProjectTitle title={project.title} />
-        <ProjectTime showStyle="projectCard" time={project.deadline} />
+        <ProjectTime showStyle="projectCard" time={project.deadline} winner={project.winner} />
         <IconItem type="money" text={budgetNum} textTitle="بودجه:" />
-        <ProjectTime showStyle="winner" time={project.deadline} />
+        <ProjectTime showStyle="winner" time={project.deadline} winner={project.winner} />
         <ProjectDetailedDescription description={project.description} />
       </div>
     </div>
@@ -34,6 +34,7 @@ ProjectCard.propTypes = {
     budget: PropTypes.number,
     deadline: PropTypes.number,
     hasBidOrNot: PropTypes.bool,
+    winner: PropTypes.string,
     skills: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       points: PropTypes.number,

@@ -28,6 +28,7 @@ const getProjectReducer = handleActions(
       imageURL: '',
       budget: '',
       skills: [],
+      winner: '',
       hasBidOrNot: false,
     },
     loading: false,

@@ -37,7 +37,7 @@ class ProjectBid extends React.Component {
           <ProjectCard project={project} />
         </div>
         <SkillsCard skills={project.skills} />
-        <ProjectTime showStyle="bidCard" time={project.deadline} id={id} />
+        <ProjectTime showStyle="bidCard" time={project.deadline} winner={project.winner} id={id} />
       </div>
     );
   }
@@ -71,6 +71,7 @@ ProjectBid.propTypes = {
     budget: PropTypes.number,
     deadline: PropTypes.number,
     hasBidOrNot: PropTypes.bool,
+    winner: PropTypes.string,
     skills: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       points: PropTypes.number,
