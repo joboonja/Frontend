@@ -26,7 +26,7 @@ function ProjectTime({
     ) / (1000),
   );
   const ended = days < 0 || hours < 0 || minutes < 0;
-  if (ended && winner) {
+  if (ended) {
     clearInterval(timerId);
   }
   const daysStr = convertEnglishNumbersToPersian(days.toString());
