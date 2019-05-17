@@ -29,17 +29,17 @@ function ProjectTime({
   if (ended && winner) {
     clearInterval(timerId);
   }
-  const daysStr = convertEnglishNumbersToPersian(days.toString());
-  const hoursStr = convertEnglishNumbersToPersian(hours.toString());
-  const minutesStr = convertEnglishNumbersToPersian(minutes.toString());
-  const secondsStr = convertEnglishNumbersToPersian(seconds.toString());
+  const daysStr = days > 0 ? `${convertEnglishNumbersToPersian(days.toString())} روز و ` : '';
+  const hoursStr = hours > 0 ? `${convertEnglishNumbersToPersian(hours.toString())} ساعت و ` : '';
+  const minutesStr = minutes > 0 ? `${convertEnglishNumbersToPersian(minutes.toString())} دقیقه و ` : '';
+  const secondsStr = seconds > 0 ? `${convertEnglishNumbersToPersian(seconds.toString())} ثانیه` : '';
 
   return (
     <div>
       {
         showStyle === 'winner' ? (ended ? <IconItem type="winner" text={!winner ? 'تعیین نشده' : winner} textTitle="برنده: " /> : '')
           : showStyle === 'projectCard' ? (ended ? <IconItem type="deadlineReached" text="مهلت تمام شده" textTitle="" />
-            : <IconItem type="deadline" text={`${daysStr} روز و ${hoursStr} ساعت و ${minutesStr} دقیقه و ${secondsStr} ثانیه `} textTitle="زمان باقی‌مانده:" />)
+            : <IconItem type="deadline" text={daysStr + hoursStr + minutesStr + secondsStr} textTitle="زمان باقی‌مانده:" />)
             : showStyle === 'bidCard' ? <BidCard ended={ended} id={id} />
               : (
                 <ProjectSummaryTime
