@@ -29,17 +29,21 @@ function ProjectTime({
   if (ended && winner) {
     clearInterval(timerId);
   }
-  const daysStr = days > 0 ? `${convertEnglishNumbersToPersian(days.toString())} روز و ` : '';
-  const hoursStr = hours > 0 ? `${convertEnglishNumbersToPersian(hours.toString())} ساعت و ` : '';
-  const minutesStr = minutes > 0 ? `${convertEnglishNumbersToPersian(minutes.toString())} دقیقه و ` : '';
-  const secondsStr = seconds > 0 ? `${convertEnglishNumbersToPersian(seconds.toString())} ثانیه` : '';
+  const daysStr = convertEnglishNumbersToPersian(days.toString());
+  const hoursStr = convertEnglishNumbersToPersian(hours.toString());
+  const minutesStr = convertEnglishNumbersToPersian(minutes.toString());
+  const secondsStr = convertEnglishNumbersToPersian(seconds.toString());
+  const daysInfoStr = days > 0 ? `${daysStr} روز و ` : '';
+  const hoursInfoStr = hours > 0 ? `${hoursStr} ساعت و ` : '';
+  const minutesInfoStr = minutes > 0 ? `${minutesStr} دقیقه و ` : '';
+  const secondsInfoStr = seconds > 0 ? `${secondsStr} ثانیه` : '';
 
   return (
     <div>
       {
         showStyle === 'winner' ? (ended ? <IconItem type="winner" text={!winner ? 'تعیین نشده' : winner} textTitle="برنده: " /> : '')
           : showStyle === 'projectCard' ? (ended ? <IconItem type="deadlineReached" text="مهلت تمام شده" textTitle="" />
-            : <IconItem type="deadline" text={daysStr + hoursStr + minutesStr + secondsStr} textTitle="زمان باقی‌مانده:" />)
+            : <IconItem type="deadline" text={daysInfoStr + hoursInfoStr + minutesInfoStr + secondsInfoStr} textTitle="زمان باقی‌مانده:" />)
             : showStyle === 'bidCard' ? <BidCard ended={ended} id={id} />
               : (
                 <ProjectSummaryTime

@@ -55,7 +55,7 @@ const Login = handleActions({
     };
   },
   [loginReqError]: (state, { payload: error }) => {
-    if (error && error.response.status === 403) {
+    if (error && error.response.status && error.response.status === 403) {
       return {
         ...state, error, loginError: errors.LOGIN_FAILURE, loading: false,
       };
