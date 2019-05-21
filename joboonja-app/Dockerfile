@@ -10,7 +10,9 @@ RUN yarn build
 
 RUN yarn global add serve
 
-CMD ["serve", "-s", "-l 80", "build"]
+RUN serve --help
+
+CMD ["serve", "-s", "-l", "80", "build"]
 
 
 
