@@ -6,7 +6,11 @@ RUN yarn install
 COPY src/ /app/src/
 COPY public/ /app/public/
 
-CMD ["yarn", "start"]
+RUN yarn build
+
+RUN yarn global add serve
+
+CMD ["serve", "-s", "-l 80", "build"]
 
 
 
