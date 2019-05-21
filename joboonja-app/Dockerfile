@@ -1,7 +1,14 @@
-FROM node:12.2.0-stretch-slim
+FROM kkarczmarczyk/node-yarn:latest
 WORKDIR /app
 COPY package.json /app/package.json
-RUN npm install  
+RUN yarn install  
+
+COPY src /app
+COPY public /app
+
+CMD ["yarn", "start"]
+
+
 
 
 
