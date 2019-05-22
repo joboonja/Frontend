@@ -1,4 +1,7 @@
 import React from 'react';
+import './styles.scss';
+import NavbarImg from './components/NavbarImg';
+import NavbarItem from './components/NavbarItem';
 
 function Navbar() {
   return (

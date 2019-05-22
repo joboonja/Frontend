@@ -1,0 +1,22 @@
+.header-row {
+    height: 100%;
+    align-items: center;
+}
+.header-item {
+    padding: 0;
+}
+.header-link {
+    margin:0;
+    padding: 0;
+    color: rgba(32, 32, 32, 0.986);
+    margin:0;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+.header-link:hover{
+  background-color: rgb(68, 68, 68);
+  color: white;
+  text-decoration: none !important;
+  border-radius: 40px;
+}

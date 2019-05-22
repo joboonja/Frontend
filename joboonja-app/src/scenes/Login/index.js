@@ -45,7 +45,7 @@ class Login extends React.PureComponent {
               <h4>ورود به جاب‌اونجا</h4>
             </div>
             <form noValidate autoComplete="off" className="loginForm">
-              <SampleInput className="loginInput" placeholder="نام کاربری" value={username} onChange={onUserChange} error={userError} />
+              <SampleInput className="loginInput" placeholder="نام کاربری" value={username.toLowerCase()} onChange={onUserChange} error={userError} />
               <SampleInput className="loginInput" placeholder="رمز عبور" type="password" error={passwordError} value={password} onChange={onPasswordChange} />
             </form>
 

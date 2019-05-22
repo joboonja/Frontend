@@ -41,7 +41,7 @@ class Register extends React.PureComponent {
                 <div className="form-row">
                   <RegisterField colClassName="col-md-4 mb-3" labelText="نام*" placeholder="نام" value={firstName} onChange={onFirstNameChange} />
                   <RegisterField colClassName="col-md-4 mb-3" labelText="نام خانوادگی*" placeholder="نام خانوادگی" value={lastName} onChange={onLastNameChange} />
-                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام‌کاربری*" placeholder="نام‌کاربری" value={username} onChange={onUsernameChange} error={start ? '' : userError} isUsername />
+                  <RegisterField colClassName="col-md-4 mb-3" labelText="نام‌کاربری*" placeholder="نام‌کاربری" value={username.toLowerCase()} onChange={onUsernameChange} error={start ? '' : userError} isUsername />
                 </div>
                 <div className="custom-file file-selector form-row">
                   <div className="form-row">
