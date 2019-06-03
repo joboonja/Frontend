@@ -1,4 +1,4 @@
-/* eslint-disable no-nested-ternary */
+/* eslint-disable no-nested-ternary,jsx-a11y/label-has-associated-control,jsx-a11y/label-has-for */
 import React from 'react';
 import PropTypes from 'prop-types';
 

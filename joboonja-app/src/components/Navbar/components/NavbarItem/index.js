@@ -32,6 +32,6 @@ NavbarItem.propTypes = {
   logout: PropTypes.bool,
 };
 
-NavbarItem.defaultPropr = {
+NavbarItem.defaultProps = {
   logout: false,
 };

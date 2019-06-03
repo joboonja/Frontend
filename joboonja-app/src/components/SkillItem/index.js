@@ -5,7 +5,7 @@ import SelfSkillItem from './components/SelfSkillItem';
 import OthersSkillItem from './components/OthersSkillItem';
 
 export default function SkillItem({
-  type, endorsed, onClick, skill, loading
+  type, endorsed, onClick, skill, loading,
 }) {
   switch (type) {
     case 'Self':
