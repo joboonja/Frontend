@@ -9,7 +9,7 @@ Axios.interceptors.request.use((config) => {
 });
 
 Axios.interceptors.response.use(response => response, (error) => {
-  if (!error.status) window.location.href = '/login';
+  if (!error.response.status) window.location.href = '/login';
   if (error.response && (error.response.status === 401
       || !error.response.config.url
     || (error.response.config.url && error.response.config.url !== `${error.response.config.baseURL}/login`
