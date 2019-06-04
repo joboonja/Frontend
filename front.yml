@@ -29,12 +29,13 @@ spec:
       containers:
       - name: joboonja-frontend
         image: quay.io/gsoosk/joboonja_front:latest
+        imagePullPolicy: "Always"
         resources:
           requests:
-            memory: "50Mi"
-            cpu: "0.03"
+            memory: "60Mi"
+            cpu: "0.1"
           limits:
-            cpu: "0.03"
-            memory: "51Mi"
+            cpu: "0.1"
+            memory: "60Mi"
         ports:
         - containerPort: 80
